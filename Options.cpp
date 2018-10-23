@@ -35,7 +35,7 @@ void Options::MoveUp(){
 }
 
 void Options::MoveDown(){
-	if(selectedItemIndex +1 < MAX_NUMBER_OF_ITEMS){
+	if(selectedItemIndex +1 < MAX_NUMBER_OF_ITEMS_OPTIONS){
 		options[selectedItemIndex].setFillColor(sf::Color::White);
 		selectedItemIndex ++;
 		options[selectedItemIndex].setFillColor(sf::Color::Blue);
@@ -49,7 +49,7 @@ void Options::WindowOptions(sf::RenderWindow &window, Options options, sf::Sound
 		while(window.pollEvent(event)){
 			switch(event.type){
 				case sf::Event::KeyReleased:
-					switch(event.key.code){
+					switch(event.key.code){ 
 						case sf::Keyboard::Up:
 							options.MoveUp();
 							break;
