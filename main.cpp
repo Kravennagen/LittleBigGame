@@ -5,10 +5,23 @@
 #include <iostream>
 #include "SFML/Graphics.hpp"
 #include "Menu.hh"
+#include "Options.hh"
+#include "SFML/Audio.hpp"
 
 int main(){
-    sf::RenderWindow window(sf::VideoMode(600, 600), "Menu");
+    sf::RenderWindow window(sf::VideoMode(800, 600), "Pacman", sf::Style::Close);
+    sf::SoundBuffer buffer;
+
+    if(!buffer.loadFromFile("/home/kraven/Documents/cpp/LittleBigGame/pacman_beginning.wav")){
+        //error
+    }
+
+    sf::Sound sound;
+    sound.setBuffer(buffer);
+    sound.stop();
+    sound.setLoop(true);
     Menu menu(window.getSize().x, window.getSize().y);
+    Options options(window.getSize().x, window.getSize().y);
 
     while(window.isOpen()){
         sf::Event event;
@@ -28,6 +41,7 @@ int main(){
                                     std::cout << "Play button has been pressed" << std::endl;
                                     break;
                                 case 1:
+                                    options.WindowOptions(window, options, sound);
                                     std::cout << "Options button has been pressed" << std::endl;
                                     break;
                                 case 2:
