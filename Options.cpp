@@ -11,10 +11,10 @@ Options::Options(float width, float height){
 	options[0].setString("Sounds");
 	options[0].setPosition(sf::Vector2f(width /2, height / (MAX_NUMBER_OF_ITEMS_OPTIONS + 1) * 1));
 
-	options[2].setFont(font);
-	options[2].setFillColor(sf::Color::White);
-	options[2].setString("Go back");
-	options[2].setPosition(sf::Vector2f(width /2, height / (MAX_NUMBER_OF_ITEMS_OPTIONS + 1) * 2));
+	options[1].setFont(font);
+	options[1].setFillColor(sf::Color::White);
+	options[1].setString("Goback");
+	options[1].setPosition(sf::Vector2f(width /2, height / (MAX_NUMBER_OF_ITEMS_OPTIONS + 1) * 2));
 	selectedItemIndex = 0;
 }
 
@@ -42,7 +42,7 @@ void Options::MoveDown(){
 	}
 }
 
-void Options::WindowOptions(sf::RenderWindow &window, Options options, sf::Sound sound){
+int Options::WindowOptions(sf::RenderWindow &window, Options options, sf::Sound sound){
 
 	while(window.isOpen()){
 		sf::Event event;
@@ -71,8 +71,9 @@ void Options::WindowOptions(sf::RenderWindow &window, Options options, sf::Sound
 									}
 									break;
 								case 1:
-									window.create(sf::VideoMode(800, 600), "pacman", sf::Style::Fullscreen);
+									//window.create(sf::VideoMode(800, 600), "pacman", sf::Style::Fullscreen);
 									std::cout << "Go back button has been pressed" << std::endl;
+									return 0;
 									break;
 							}
 							break;
@@ -84,5 +85,5 @@ void Options::WindowOptions(sf::RenderWindow &window, Options options, sf::Sound
 		options.draw(window);
 		window.display();	
 	}
-	
+	return 1;
 }

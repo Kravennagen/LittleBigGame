@@ -18,7 +18,7 @@ public:
 	void MoveUp();
 	void MoveDown();
 	int GetPressedItem(){return selectedItemIndex;}
-	void WindowOptions(sf::RenderWindow &window, Options options, sf::Sound sound);
+	int WindowOptions(sf::RenderWindow &window, Options options, sf::Sound sound);
 
 private:
 	int selectedItemIndex;
