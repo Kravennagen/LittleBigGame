@@ -24,11 +24,11 @@ Si <b>done</b> apparait c'est que c'est bon.<br>
 <br>
 <br>
 Maintenant vous pouvez récupérer le git et pour lancer le projet il faut ces trois commandes:<br>
-```g++ -c main.cpp Menu.cpp```
+```g++ -c *.cpp```
 <br>
-```g++ main.o Menu.o -o menu -lsfml-graphics -lsfml-graphics -lsfml-window -lsfml-system```
+```g++ *.o -o jeu -lsfml-graphics -lsfml-audio -lsfml-window -lsfml-system```
 <br>
-```./menu```
+```./jeu```
 
 <br>
 Si vous rajoutez des fichiers .cpp il faut les rajouter dans la compilation.
