@@ -2,7 +2,7 @@
 #ifndef TIMEMANAGER_HH
 #define TIMEMANAGER_HH
 
-
+#include <iostream>
 #include <chrono>
 
 class TimeManager {

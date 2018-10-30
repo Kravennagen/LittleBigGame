@@ -1,6 +1,5 @@
 #include "TimeManager.hh"
-#include <chrono>
-#include <iostream>
+
 
 
 TimeManager TimeManager::singleton;

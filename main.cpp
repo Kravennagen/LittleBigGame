@@ -7,6 +7,8 @@
 #include "Menu.hh"
 #include "Options.hh"
 #include "SFML/Audio.hpp"
+#include "TimeManager.hh"
+#include "FPS.hh"
 
 int main(){
     sf::RenderWindow window(sf::VideoMode(800, 600), "Pacman", sf::Style::Close);
@@ -15,7 +17,10 @@ int main(){
     if(!buffer.loadFromFile("/home/kraven/Documents/cpp/LittleBigGame/pacman_beginning.wav")){
         //error
     }
-
+    
+    static TimeManager& instance = TimeManager::GetInstance();
+    static FPS& fps = FPS::GetInstanceFPS();
+    instance.Start();
     sf::Sound sound;
     sound.setBuffer(buffer);
     sound.stop();
@@ -24,6 +29,7 @@ int main(){
     Options options(window.getSize().x, window.getSize().y);
 
     while(window.isOpen()){
+        instance.Update();
         sf::Event event;
         while( window.pollEvent(event)){
             switch(event.type){
@@ -38,6 +44,10 @@ int main(){
                         case sf::Keyboard::Return:
                             switch(menu.GetPressedItem()){
                                 case 0:
+                                    //static TimeManager& instance = TimeManager::GetInstance();
+                                    //instance.start() in the fps
+
+                                    fps.getFps(instance);
                                     std::cout << "Play button has been pressed" << std::endl;
                                     break;
                                 case 1:
