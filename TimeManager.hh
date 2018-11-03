@@ -5,7 +5,7 @@
 #include <iostream>
 #include <chrono>
 
-class TimeManager {
+class TimeManager{
     TimeManager();
     ~TimeManager();
 private:
