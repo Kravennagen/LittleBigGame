@@ -25,13 +25,13 @@ void TimeManager::Update() {
     secondUpdate = std::chrono::system_clock::now();
 }
 unsigned int TimeManager::GetElapsedTime() const {
-    unsigned int elapsed_seconds_update = std::chrono::duration_cast<std::chrono::milliseconds >
+    unsigned int elapsed_seconds_update = std::chrono::duration_cast<std::chrono::seconds >
             (secondUpdate-firstUpdate).count();
     return elapsed_seconds_update;
 
 }
 unsigned int TimeManager::GetStartedTime() const {
-    unsigned int elapsed_seconds_start = std::chrono::duration_cast<std::chrono::milliseconds >
-            (start-secondUpdate).count();
+    unsigned int elapsed_seconds_start = std::chrono::duration_cast<std::chrono::seconds >
+            (secondUpdate-start).count();
     return elapsed_seconds_start;
 }

@@ -1,17 +1,18 @@
 #include "Scores.hh"
 
 Scores::Scores(){
-	_scores = 0;
+	SetScores(0);
 }
 
 Scores::~Scores(){}
 
-int Scores::GetScores() const {
+int Scores::GetScores() {
 	return _scores;
 }
 
 void Scores::SetScores(int _Scores){
 	Scores::_scores = _Scores;
+	notify();
 }
 
 void Scores::AddPoint(int points){

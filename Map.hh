@@ -9,17 +9,23 @@
 #include "SFML/Graphics.hpp"
 #include "Scores.hh"
 #include "Observable.hpp"
+#include "Observer.hpp"
+#include "TimeManager.hh"
+#include "FPS.hh"
+#include <unistd.h>
 
-#define MAX_NUMBER_OF_ITEMS_MAP 4
+#define MAX_NUMBER_OF_ITEMS_MAP 6
+
 
 class Map: public Observer<int>{
 public:
-	Map(float width, float height, unsigned int time, double scores);
-	~Map();
+	Map(float width, float height);
+	virtual ~Map();
 
-	void refresh(Event<int>* e);
-	void draw(sf::RenderWindow &window);
+	virtual void refresh(Event<int>* e) override;
+	void draw(sf::RenderWindow &window, int score, int time, int fps);
 	int WindowMap(sf::RenderWindow &window, Map map, sf::Sound sound, Scores scores);
+
 private:
 	sf::Font font;
 	sf::Text text[MAX_NUMBER_OF_ITEMS_MAP];

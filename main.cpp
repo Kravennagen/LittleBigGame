@@ -11,7 +11,6 @@
 #include "FPS.hh"
 #include "Scores.hh"
 #include "Map.hh"
-#include "Observer.hpp"
 
 using namespace std;
 
@@ -22,27 +21,23 @@ int main(){
     if(!buffer.loadFromFile("/home/kraven/Documents/cpp/LittleBigGame/pacman_beginning.wav")){
         //error
     }
-
-    //Observer<int> observer;
     
-    static TimeManager& instance = TimeManager::GetInstance();
-    static FPS& fps = FPS::GetInstanceFPS();
+    
+    
     Scores scores;
-    instance.Start();
+    
     sf::Sound sound;
-
-    //scores.addObserver(observer);
+    
 
     sound.setBuffer(buffer);
     sound.stop();
     sound.setLoop(true);
     Menu menu(window.getSize().x, window.getSize().y);
     Options options(window.getSize().x, window.getSize().y);
-    Map map(window.getSize().x, window.getSize().y, instance.GetStartedTime(), scores.GetScores());
+    Map map(window.getSize().x, window.getSize().y);
+    
 
     while(window.isOpen()){
-        
-        instance.Update();
         sf::Event event;
         while( window.pollEvent(event)){
             switch(event.type){
@@ -57,10 +52,7 @@ int main(){
                         case sf::Keyboard::Return:
                             switch(menu.GetPressedItem()){
                                 case 0:
-                                    //static TimeManager& instance = TimeManager::GetInstance();
-                                    //instance.Update() in the fps
-
-                                    fps.getFps(instance);
+                                    
                                     map.WindowMap(window, map, sound, scores);
                                     std::cout << "Play button has been pressed" << std::endl;
                                     break;

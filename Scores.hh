@@ -9,7 +9,7 @@ public:
 	virtual ~Scores();
 	void AddPoint(int points);
 	int _scores;
-	int GetScores() const;
+	int GetScores();
 	void SetScores(int scores);
 	void addObserver(Observer<int>* obs);
 
