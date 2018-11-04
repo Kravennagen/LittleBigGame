@@ -7,6 +7,7 @@ template <typename Object>
 
 class Observer {
 public:
+	virtual ~Observer();
 	virtual void refresh(Event<Object>* e) = 0;
 };
 

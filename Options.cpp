@@ -4,17 +4,18 @@
 Options::Options(float width, float height){
 	if(!font.loadFromFile("/usr/share/fonts/truetype/freefont/FreeMono.ttf")){
 		//error
+		std::cout << "font error" << std::endl;
 	}
 
-	options[0].setFont(font);
-	options[0].setFillColor(sf::Color::Blue);
-	options[0].setString("Sounds");
-	options[0].setPosition(sf::Vector2f(width /2, height / (MAX_NUMBER_OF_ITEMS_OPTIONS + 1) * 1));
+	text[0].setFont(font);
+	text[0].setFillColor(sf::Color::Blue);
+	text[0].setString("Sounds");
+	text[0].setPosition(sf::Vector2f(width /2, height / (MAX_NUMBER_OF_ITEMS_OPTIONS + 1) * 1));
 
-	options[1].setFont(font);
-	options[1].setFillColor(sf::Color::White);
-	options[1].setString("Goback");
-	options[1].setPosition(sf::Vector2f(width /2, height / (MAX_NUMBER_OF_ITEMS_OPTIONS + 1) * 2));
+	text[1].setFont(font);
+	text[1].setFillColor(sf::Color::White);
+	text[1].setString("Goback");
+	text[1].setPosition(sf::Vector2f(width /2, height / (MAX_NUMBER_OF_ITEMS_OPTIONS + 1) * 2));
 	selectedItemIndex = 0;
 }
 
@@ -22,23 +23,23 @@ Options::~Options(){}
 
 void Options::draw(sf::RenderWindow &window){
 	for(int i = 0; i < MAX_NUMBER_OF_ITEMS_OPTIONS; i++){
-		window.draw(options[i]);
+		window.draw(text[i]);
 	}
 }
 
 void Options::MoveUp(){
 	if(selectedItemIndex -1 >= 0){
-		options[selectedItemIndex].setFillColor(sf::Color::White);
+		text[selectedItemIndex].setFillColor(sf::Color::White);
 		selectedItemIndex --;
-		options[selectedItemIndex].setFillColor(sf::Color::Blue);
+		text[selectedItemIndex].setFillColor(sf::Color::Blue);
 	}
 }
 
 void Options::MoveDown(){
 	if(selectedItemIndex +1 < MAX_NUMBER_OF_ITEMS_OPTIONS){
-		options[selectedItemIndex].setFillColor(sf::Color::White);
+		text[selectedItemIndex].setFillColor(sf::Color::White);
 		selectedItemIndex ++;
-		options[selectedItemIndex].setFillColor(sf::Color::Blue);
+		text[selectedItemIndex].setFillColor(sf::Color::Blue);
 	}
 }
 

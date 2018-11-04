@@ -23,7 +23,7 @@ public:
 private:
 	int selectedItemIndex;
 	sf::Font font;
-	sf::Text options[MAX_NUMBER_OF_ITEMS_OPTIONS];
+	sf::Text text[MAX_NUMBER_OF_ITEMS_OPTIONS];
 };
 
 #endif //SFML_OPTIONS_HH

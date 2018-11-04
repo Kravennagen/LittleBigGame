@@ -1,6 +1,5 @@
 #include "Factory.hh"
 
-
 Factory::Factory() {}
 
 Factory::~Factory() {}
