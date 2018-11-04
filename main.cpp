@@ -15,7 +15,7 @@
 using namespace std;
 
 int main(){
-    sf::RenderWindow window(sf::VideoMode(512, 512), "Pacman", sf::Style::Close);
+    sf::RenderWindow window(sf::VideoMode(512, 562), "Pacman", sf::Style::Close);
     sf::SoundBuffer buffer;
 
     if(!buffer.loadFromFile("/home/kraven/Documents/cpp/LittleBigGame/pacman_beginning.wav")){
@@ -52,7 +52,6 @@ int main(){
                         case sf::Keyboard::Return:
                             switch(menu.GetPressedItem()){
                                 case 0:
-                                    
                                     map.WindowMap(window, map, sound, scores);
                                     std::cout << "Play button has been pressed" << std::endl;
                                     break;
