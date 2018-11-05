@@ -44,8 +44,7 @@ int main(){
     Map map(window.getSize().x, window.getSize().y);
     EndGame endGame(window.getSize().x, window.getSize().y);
     
-    Pacman pacman;
-    pacman.SetLife(0);
+
     while(window.isOpen()){
         sf::Event event;
         while( window.pollEvent(event)){
@@ -61,8 +60,7 @@ int main(){
                         case sf::Keyboard::Return:
                             switch(menu.GetPressedItem()){
                                 case 0:
-                                    //map.WindowMap(window, map, scores);
-                                    endGame.WindowEndGame(window, endGame);
+                                    map.WindowMap(window, map, scores);
                                     std::cout << "Play button has been pressed" << std::endl;
                                     break;
                                 case 1:
