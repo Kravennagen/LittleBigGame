@@ -4,7 +4,7 @@ Map::Map(float width, float height){
 
 	if(!font.loadFromFile("/usr/share/fonts/truetype/freefont/FreeMono.ttf")){
 		//error
-		std::cout << "font error" << std::endl;
+		std::cout << "Font error Map" << std::endl;
 	}
 	text[0].setFont(font);
 	text[0].setFillColor(sf::Color::Blue);
@@ -62,10 +62,12 @@ Map::Map(float width, float height){
 	if (!texture.loadFromFile("map.png"))
 	{
     	// Erreur...
+    	std::cout << "Texture Error" << std::endl;
 	}
 
 	if (!tileMap.load("tile_gum.png", sf::Vector2u(16, 16), level, 28, 31))
     //error
+		std::cout << "TileMap Error" << std::endl;
 
 
 	texture.loadFromFile("map.png");
@@ -110,10 +112,17 @@ int Map::WindowMap(sf::RenderWindow &window, Map map, sf::Sound sound, Scores sc
 	static FPS& fps = FPS::GetInstanceFPS();
 	instance.Start();
 	while(window.isOpen()){
+		while(window.pollEvent(event)){
+			switch(event.type){
+				case sf::Event::Closed:
+					window.close();
+					break;
+			}
+		}
+
 		instance.Update();
 		float f = fps.getFps(instance);
 		window.clear();
-		
 		window.draw(sprite);
 		window.draw(tileMap);
 		sleep(1);

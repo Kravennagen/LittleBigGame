@@ -31,6 +31,7 @@ protected:
 	sf::Text text[MAX_NUMBER_OF_ITEMS_MAP];
 	sf::Texture texture;
 	sf::Sprite sprite;
+	sf::Event event;
 	TileMap tileMap;
 };
 

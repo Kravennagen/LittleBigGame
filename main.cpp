@@ -20,6 +20,7 @@ int main(){
 
     if(!buffer.loadFromFile("/home/kraven/Documents/cpp/LittleBigGame/pacman_beginning.wav")){
         //error
+        std::cout << "Sound not found" << std::endl;
     }
     
     

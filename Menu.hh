@@ -6,6 +6,7 @@
 #define SFML_MENU_HH
 #include "SFML/Graphics.hpp"
 #include "SFML/Graphics/Font.hpp"
+#include <iostream>
 
 #define MAX_NUMBER_OF_ITEMS 3
 

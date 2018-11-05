@@ -7,6 +7,7 @@
 Menu::Menu(float width, float height){
     if(!font.loadFromFile("/usr/share/fonts/truetype/freefont/FreeMono.ttf")){
         //error
+        std::cout << "Font error Menu" << std::endl; 
     }
 
     menu[0].setFont(font);

@@ -4,7 +4,7 @@
 Options::Options(float width, float height){
 	if(!font.loadFromFile("/usr/share/fonts/truetype/freefont/FreeMono.ttf")){
 		//error
-		std::cout << "font error" << std::endl;
+		std::cout << "Font error Options" << std::endl;
 	}
 
 	text[0].setFont(font);
