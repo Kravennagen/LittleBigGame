@@ -17,6 +17,7 @@
 #include "Inky.hh"
 #include "Blinky.hh"
 #include "LevelMap.hh"
+#include "Pacman.hh"
 
 #define MAX_NUMBER_OF_ITEMS_MAP 6
 

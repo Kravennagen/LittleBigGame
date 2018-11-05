@@ -4,6 +4,8 @@
 #include "TimeManager.hh"
 #include "Character.hh"
 #include "Observable.hpp"
+#include <iostream>
+#include "SFML/Graphics.hpp"
 
 class Pacman: public Observable<int>, public Character {
 public:
@@ -20,6 +22,7 @@ public:
 
 protected:
 	Event<int>* getEvent();
+
 };
 
 #endif //PACMAN_HH

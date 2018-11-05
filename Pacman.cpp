@@ -38,3 +38,4 @@ void Pacman::PacmanDied(){
 	this->SetLife(this->GetLife() - 1);
 	notify();
 }
+

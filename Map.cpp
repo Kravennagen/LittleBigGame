@@ -62,7 +62,7 @@ int Map::WindowMap(sf::RenderWindow &window, Map map, Scores scores){
 	Inky inky;
 	Clyde clyde;
 	LevelMap levelMap;
-
+		
 	instance.Start();
 	while(window.isOpen()){
 		while(window.pollEvent(event)){
@@ -73,7 +73,6 @@ int Map::WindowMap(sf::RenderWindow &window, Map map, Scores scores){
 			}
 		}
 
-		//pinky.CheckPosition(0, 44, level);
 		instance.Update();
 		float f = fps.getFps(instance);
 
