@@ -1,9 +1,9 @@
 #include "Map.hh"
 
+
 Map::Map(float width, float height){
 
 	if(!font.loadFromFile("/usr/share/fonts/truetype/freefont/FreeMono.ttf")){
-		//error
 		std::cout << "Font error Map" << std::endl;
 	}
 	text[0].setFont(font);
@@ -21,61 +21,8 @@ Map::Map(float width, float height){
 	text[4].setString("FPS");
 	text[4].setPosition(sf::Vector2f(width /(MAX_NUMBER_OF_ITEMS_MAP + 1) * 5, 0));
 
-	const int level[31][28] =
-	{
-
-		{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-		{0,2,2,2,2,2,2,2,2,2,2,2,2,0,0,2,2,2,2,2,2,2,2,2,2,2,2,0},
-		{0,2,0,0,0,0,2,0,0,0,0,0,2,0,0,2,0,0,0,0,0,2,0,0,0,0,2,0},
-		{0,2,0,0,0,0,2,0,0,0,0,0,2,0,0,2,0,0,0,0,0,2,0,0,0,0,2,0},
-		{0,3,0,0,0,0,2,0,0,0,0,0,2,0,0,2,0,0,0,0,0,2,0,0,0,0,3,0},
-		{0,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,0},
-		{0,2,0,0,0,0,2,0,0,2,0,0,0,0,0,0,0,0,2,0,0,2,0,0,0,0,2,0},
-		{0,2,0,0,0,0,2,0,0,2,0,0,0,0,0,0,0,0,2,0,0,2,0,0,0,0,2,0},
-		{0,2,2,2,2,2,2,0,0,2,2,2,2,0,0,2,2,2,2,0,0,2,2,2,2,2,2,0},
-		{0,0,0,0,0,0,2,0,0,0,0,0,1,0,0,1,0,0,0,0,0,2,0,0,0,0,0,0},
-		{1,1,1,1,1,0,2,0,0,0,0,0,1,0,0,1,0,0,0,0,0,2,0,1,1,1,1,1},
-		{1,1,1,1,1,0,2,0,0,1,1,1,1,1,1,1,1,1,1,0,0,2,0,1,1,1,1,1},
-		{1,1,1,1,1,0,2,0,0,1,0,0,0,7,7,0,0,0,1,0,0,2,0,1,1,1,1,1},
-		{0,0,0,0,0,0,2,0,0,1,0,1,1,1,1,1,1,0,1,0,0,2,0,0,0,0,0,0},
-		{6,1,1,1,1,1,2,1,1,1,0,1,1,1,1,1,1,0,1,1,1,2,1,1,1,1,1,6},
-		{0,0,0,0,0,0,2,0,0,1,0,0,0,0,0,0,0,0,1,0,0,2,0,0,0,0,0,0},
-		{1,1,1,1,1,0,2,0,0,1,0,0,0,0,0,0,0,0,1,0,0,2,0,1,1,1,1,1},
-		{1,1,1,1,1,0,2,0,0,1,1,1,1,1,1,1,1,1,1,0,0,2,0,1,1,1,1,1},
-		{1,1,1,1,1,0,2,0,0,1,0,0,0,0,0,0,0,0,1,0,0,2,0,1,1,1,1,1},
-		{0,0,0,0,0,0,2,0,0,1,0,0,0,0,0,0,0,0,1,0,0,2,0,0,0,0,0,0},
-		{0,2,2,2,2,2,2,2,2,2,2,2,2,0,0,2,2,2,2,2,2,2,2,2,2,2,2,0},
-		{0,2,0,0,0,0,2,0,0,0,0,0,2,0,0,2,0,0,0,0,0,2,0,0,0,0,2,0},
-		{0,2,0,0,0,0,2,0,0,0,0,0,2,0,0,2,0,0,0,0,0,2,0,0,0,0,2,0},
-		{0,3,2,2,0,0,2,2,2,2,2,2,2,1,1,2,2,2,2,2,2,2,0,0,2,2,3,0},
-		{0,0,0,2,0,0,2,0,0,2,0,0,0,0,0,0,0,0,2,0,0,2,0,0,2,0,0,0},
-		{0,0,0,2,0,0,2,0,0,2,0,0,0,0,0,0,0,0,2,0,0,2,0,0,2,0,0,0},
-		{0,2,2,2,2,2,2,0,0,2,2,2,2,0,0,2,2,2,2,0,0,2,2,2,2,2,2,0},
-		{0,2,0,0,0,0,0,0,0,0,0,0,2,0,0,2,0,0,0,0,0,0,0,0,0,0,2,0},
-		{0,2,0,0,0,0,0,0,0,0,0,0,2,0,0,2,0,0,0,0,0,0,0,0,0,0,2,0},
-		{0,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,0},
-		{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}
-	};
-
-    // on crée la tilemap avec le niveau précédemment défini
-
-	if (!texture.loadFromFile("map.png"))
-	{
-    	// Erreur...
-    	std::cout << "Texture Error" << std::endl;
-	}
-
-	if (!tileMap.load("tile_gum.png", sf::Vector2u(16, 16), level, 28, 31))
-    //error
-		std::cout << "TileMap Error" << std::endl;
-
-
-	texture.loadFromFile("map.png");
-
-  // Create a sprite
-
-	sprite.setTexture(texture);
-	sprite.setOrigin(0,-50);
+	LevelMap();
+	
 }
 
 void Map::refresh(Event<int>* e){
@@ -107,9 +54,15 @@ void Map::drawText(sf::RenderWindow &window, int score, int time, int fps){
 }
 
 
-int Map::WindowMap(sf::RenderWindow &window, Map map, sf::Sound sound, Scores scores){
+int Map::WindowMap(sf::RenderWindow &window, Map map, Scores scores){
 	static TimeManager& instance = TimeManager::GetInstance();
 	static FPS& fps = FPS::GetInstanceFPS();
+	Pinky pinky;
+	Blinky blinky;
+	Inky inky;
+	Clyde clyde;
+	LevelMap levelMap;
+
 	instance.Start();
 	while(window.isOpen()){
 		while(window.pollEvent(event)){
@@ -120,11 +73,13 @@ int Map::WindowMap(sf::RenderWindow &window, Map map, sf::Sound sound, Scores sc
 			}
 		}
 
+		//pinky.CheckPosition(0, 44, level);
 		instance.Update();
 		float f = fps.getFps(instance);
+
 		window.clear();
-		window.draw(sprite);
-		window.draw(tileMap);
+		window.draw(levelMap.sprite);
+		window.draw(levelMap.tileMap);//balls
 		sleep(1);
 		map.drawText(window, scores.GetScores(), instance.GetStartedTime(), f);
 		window.display();

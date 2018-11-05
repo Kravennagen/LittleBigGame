@@ -11,6 +11,7 @@
 #include "FPS.hh"
 #include "Scores.hh"
 #include "Map.hh"
+#include "Factory.hh"
 
 using namespace std;
 
@@ -24,11 +25,14 @@ int main(){
     }
     
     
-    
+    Factory factory;
     Scores scores;
     
     sf::Sound sound;
-    
+    factory.Create("Pinky");
+    factory.Create("Blinky");
+    factory.Create("Clyde");
+    factory.Create("Inky");
 
     sound.setBuffer(buffer);
     sound.stop();
@@ -53,7 +57,7 @@ int main(){
                         case sf::Keyboard::Return:
                             switch(menu.GetPressedItem()){
                                 case 0:
-                                    map.WindowMap(window, map, sound, scores);
+                                    map.WindowMap(window, map, scores);
                                     std::cout << "Play button has been pressed" << std::endl;
                                     break;
                                 case 1:

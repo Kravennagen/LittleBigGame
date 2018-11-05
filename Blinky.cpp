@@ -4,8 +4,7 @@ TimeManager &timeManagerBlinky = TimeManager::GetInstance();
 
 Blinky::Blinky(){
 	this->SetLife(1);
-	this->SetX(0);
-	this->SetY(0);
+	
 }
 
 Blinky::~Blinky(){}
@@ -29,3 +28,5 @@ void Blinky::removeObserver(Observer<int>* obs){
 Event<int>* Blinky::getEvent(){
 	return new Event<int>((int *)this->GetLife());
 }
+
+

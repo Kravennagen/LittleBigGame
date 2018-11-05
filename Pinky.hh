@@ -3,6 +3,7 @@
 
 #include "TimeManager.hh"
 #include "Character.hh"
+#include <iostream>
 #include "Observable.hpp"
 
 
@@ -16,6 +17,8 @@ public:
 	void addObserver(Observer<int>* obs);
 
 	void removeObserver(Observer<int>* obs);
+
+	void CheckPosition(int _x, int _y, int level[31][28]);
 
 protected:
 	Event<int>* getEvent();
