@@ -3,6 +3,7 @@
 int LevelMap::level[31][28];
 
 LevelMap::LevelMap(){
+	
 	int level[31][28] =
 	{
 
@@ -40,9 +41,11 @@ LevelMap::LevelMap(){
 	};
 	w = 31;
 	h = 28;
-	for( int r = 0; r < h; r++ )
+	m[w][h];
+	
+	/*for( int r = 0; r < h; r++ )
             for( int s = 0; s < w; s++ )
-                m[s][r] = level[r][s];
+                m[s][r] = level[r][s];*/
     // on crée la tilemap avec le niveau précédemment défini
 
 	if (!texture.loadFromFile("map.png"))
@@ -67,3 +70,6 @@ LevelMap::LevelMap(){
 LevelMap::~LevelMap(){
 
 }
+
+
+

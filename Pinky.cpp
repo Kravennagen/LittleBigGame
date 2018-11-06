@@ -7,8 +7,6 @@ Pinky::Pinky(){
 	std::cout << "life pinky" << this->GetLife() << std::endl;
 	this->SetX(12);
 	this->SetY(14);
-	std::cout << "X pinky" << this->GetX() << std::endl;
-	std::cout << "Y pinky" << this->GetY() << std::endl;
 }
 
 Pinky::~Pinky(){}
@@ -34,9 +32,8 @@ Event<int>* Pinky::getEvent(){
 }
 
 
-//for pacman 
 void Pinky::CheckPosition(int _x, int _y, int level[31][28]){
-	std::cout << "level 0" << level[0][0] << std::endl;
+	
 	if(level[_x][_y] != 0){
 		this->SetX(_x);
 		this->SetY(_y);
@@ -44,6 +41,5 @@ void Pinky::CheckPosition(int _x, int _y, int level[31][28]){
 		this->SetX(GetX());
 		this->SetY(GetY());
 	}
-	std::cout << "X pinky" << this->GetX() << std::endl;
-	std::cout << "Y pinky" << this->GetY() << std::endl;
+	
 }

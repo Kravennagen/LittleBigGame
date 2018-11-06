@@ -61,11 +61,11 @@ int main(){
                             switch(menu.GetPressedItem()){
                                 case 0:
                                     map.WindowMap(window, map, scores);
-                                    std::cout << "Play button has been pressed" << std::endl;
+            
                                     break;
                                 case 1:
                                     options.WindowOptions(window, options, sound);
-                                    std::cout << "Options button has been pressed" << std::endl;
+                                    
                                     break;
                                 case 2:
                                     window.close();

@@ -4,8 +4,9 @@ TimeManager &timeManagerPacman = TimeManager::GetInstance();
 
 Pacman::Pacman(){
 	this->SetLife(3);
-	this->SetX(1);
-	this->SetY(1);
+	this->SetX(7);
+	this->SetY(23);
+	std::cout << "x " << this->GetX() << "y " << this->GetY() << std::endl;
 }
 
 Pacman::~Pacman(){}
@@ -42,8 +43,9 @@ void Pacman::PacmanDied(){
 
 int Pacman::DisplayPacman()
 {
-LevelMap levelmap;
-	if (!levelmap.pacman.move("pacman.png", sf::Vector2u(16, 16), GetX(), GetY()))
+	LevelMap levelmap;
+
+	if (!levelmap.pacman.move("pacman.png", sf::Vector2u(16, 16), this->GetX(), this->GetY()))
         	return -1;
 
 }
