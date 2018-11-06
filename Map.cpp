@@ -62,7 +62,6 @@ int Map::WindowMap(sf::RenderWindow &window, Map map, Scores scores){
 	Inky inky;
 	Clyde clyde;
 	LevelMap levelMap;
-
 	Pacman pacman;
 	instance.Start();
 	while(window.isOpen()){
@@ -75,36 +74,63 @@ int Map::WindowMap(sf::RenderWindow &window, Map map, Scores scores){
 				switch(event.key.code)
 				{
 					case sf::Keyboard::Down:
-					//std::cout << levelMap.level[pacman.GetY()][pacman.GetX()] << std::endl;
+					
 					if(levelMap.level[pacman.GetY()+1][pacman.GetX()] != 0)
 						pacman.SetY(pacman.GetY()+1);
-					//std::cout << levelMap.level[pacman.GetY()+1][pacman.GetX()] << std::endl;
-					//std::cout << "y " << pacman.GetY() << std::endl;
-					//pacman.DisplayPacman();
+						if(levelMap.level[pacman.GetY()][pacman.GetX()] == 2){
+							levelMap.level[pacman.GetY()][pacman.GetX()] == 1;
+							scores.AddPoint(1);
+						}else if(levelMap.level[pacman.GetY()][pacman.GetX()] == 3){
+							levelMap.level[pacman.GetY()][pacman.GetX()] == 1;
+							scores.AddPoint(2);
+							//scare ghost
+						}
+					
 					if (!levelMap.pacman.move("pacman.png", sf::Vector2u(16, 16), pacman.GetX(), pacman.GetY()))
         				return -1;
 					break;
 					case sf::Keyboard::Up:
 					if(levelMap.level[pacman.GetY()-1][pacman.GetX()] != 0)
 						pacman.SetY(pacman.GetY()-1);
-					//std::cout << "x " << pacman.GetX() << std::endl;
-					//pacman.DisplayPacman();
+						if(levelMap.level[pacman.GetY()][pacman.GetX()] == 2){
+							levelMap.level[pacman.GetY()][pacman.GetX()] == 1;
+							scores.AddPoint(1);
+						}else if(levelMap.level[pacman.GetY()][pacman.GetX()] == 3){
+							levelMap.level[pacman.GetY()][pacman.GetX()] == 1;
+							scores.AddPoint(2);
+							//scare ghost
+						}
+					
 					if (!levelMap.pacman.move("pacman.png", sf::Vector2u(16, 16), pacman.GetX(), pacman.GetY()))
         				return -1;
 					break;
 					case sf::Keyboard::Left:
 					if(levelMap.level[pacman.GetY()][pacman.GetX()-1] != 0)
 						pacman.SetX(pacman.GetX()-1);
-					//std::cout << "y " << pacman.GetY() << std::endl;
-					//pacman.DisplayPacman();
+						if(levelMap.level[pacman.GetY()][pacman.GetX()] == 2){
+							levelMap.level[pacman.GetY()][pacman.GetX()] == 1;
+							scores.AddPoint(1);
+						}else if(levelMap.level[pacman.GetY()][pacman.GetX()] == 3){
+							levelMap.level[pacman.GetY()][pacman.GetX()] == 1;
+							scores.AddPoint(2);
+							//scare ghost
+						}
+					
 					if (!levelMap.pacman.move("pacman.png", sf::Vector2u(16, 16), pacman.GetX(), pacman.GetY()))
         				return -1;
 					break;
 					case sf::Keyboard::Right:
 					if(levelMap.level[pacman.GetY()][pacman.GetX()+1] != 0)
 						pacman.SetX(pacman.GetX()+1);
-					//std::cout << "x " << pacman.GetX() << std::endl;
-					//pacman.DisplayPacman();
+						if(levelMap.level[pacman.GetY()][pacman.GetX()] == 2){
+							levelMap.level[pacman.GetY()][pacman.GetX()] == 1;
+							scores.AddPoint(1);
+						}else if(levelMap.level[pacman.GetY()][pacman.GetX()] == 3){
+							levelMap.level[pacman.GetY()][pacman.GetX()] == 1;
+							scores.AddPoint(2);
+							//scare ghost
+						}
+					
 					if (!levelMap.pacman.move("pacman.png", sf::Vector2u(16, 16), pacman.GetX(), pacman.GetY()))
         				return -1;
 
