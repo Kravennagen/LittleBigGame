@@ -24,6 +24,7 @@ void EndGame::draw(sf::RenderWindow &window){
 }
 
 int EndGame::WindowEndGame(sf::RenderWindow &window, EndGame endGame){
+	Pacman pacman;
 	while(window.isOpen()){
 		
 		if (!texture.loadFromFile("win.jpg") || !texture.loadFromFile("gameover.jpg"))

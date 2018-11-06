@@ -62,15 +62,43 @@ int Map::WindowMap(sf::RenderWindow &window, Map map, Scores scores){
 	Inky inky;
 	Clyde clyde;
 	LevelMap levelMap;
-		
+	Pacman pacman;
 	instance.Start();
 	while(window.isOpen()){
 		while(window.pollEvent(event)){
-			switch(event.type){
-				case sf::Event::Closed:
-					window.close();
-					break;
-			}
+			    if(event.type == sf::Event::Closed)
+                window.close();
+        switch(event.type){
+                case sf::Event::KeyReleased:
+                        switch(event.key.code)
+                        {
+                                case sf::Keyboard::Down:
+                                        if(levelMap.level[pacman.GetY()+1][pacman.GetX()] != 0)
+                                        	pacman.SetY(pacman.GetY()+1);
+					pacman.DisplayPacman();
+                                break;
+                                case sf::Keyboard::Up:
+                                         if(levelMap.level[pacman.GetY()-1][pacman.GetX()] != 0)
+	                                        pacman.SetY(pacman.GetY()-1);
+					 pacman.DisplayPacman();
+                                break;
+                                case sf::Keyboard::Left:
+                                         if(levelMap.level[pacman.GetY()][pacman.GetX()-1] != 0)
+                                        	pacman.SetX(pacman.GetX()-1);
+					 pacman.DisplayPacman();
+                                break;
+                                case sf::Keyboard::Right:
+                                        if(levelMap.level[pacman.GetY()][pacman.GetX()+1] != 0)
+                                        	pacman.SetX(pacman.GetX()+1);
+					pacman.DisplayPacman();
+
+                                break;
+                        }
+                break;
+
+        }
+
+
 		}
 
 		instance.Update();

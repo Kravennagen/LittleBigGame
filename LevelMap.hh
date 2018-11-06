@@ -21,6 +21,7 @@ public:
 	sf::Texture texture;
 	sf::Sprite sprite;
 	TileMap tileMap;
+	TileMap pacman;
 };
 
 #endif //LEVELMAP_HH

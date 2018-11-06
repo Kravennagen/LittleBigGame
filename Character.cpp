@@ -8,19 +8,19 @@ Character::~Character() {
 
 }
 
-double Character::GetX() const {
+int Character::GetX() const {
     return _x;
 }
 
-void Character::SetX(double _X) {
+void Character::SetX(int _X) {
     Character::_x = _X;
 }
 
-double Character::GetY() const {
+int Character::GetY() const {
     return _y;
 }
 
-void Character::SetY(double _Y) {
+void Character::SetY(int _Y) {
     Character::_y = _Y;
 }
 

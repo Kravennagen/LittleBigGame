@@ -6,9 +6,11 @@
 #include "Observable.hpp"
 #include <iostream>
 #include "SFML/Graphics.hpp"
+#include "LevelMap.hh"
 
 class Pacman: public Observable<int>, public Character {
 public:
+
 	Pacman();
 	~Pacman();
 
@@ -19,6 +21,7 @@ public:
 	void removeObserver(Observer<int>* obs);
 
 	void PacmanDied();
+	int DisplayPacman();
 
 protected:
 	Event<int>* getEvent();

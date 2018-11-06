@@ -4,8 +4,8 @@ TimeManager &timeManagerPacman = TimeManager::GetInstance();
 
 Pacman::Pacman(){
 	this->SetLife(3);
-	//this->SetX(1);
-	//this->SetY(1);
+	this->SetX(1);
+	this->SetY(1);
 }
 
 Pacman::~Pacman(){}
@@ -39,3 +39,11 @@ void Pacman::PacmanDied(){
 	notify();
 }
 
+
+int Pacman::DisplayPacman()
+{
+LevelMap levelmap;
+	if (!levelmap.pacman.move("pacman.png", sf::Vector2u(16, 16), GetX(), GetY()))
+        	return -1;
+
+}

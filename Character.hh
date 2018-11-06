@@ -12,13 +12,13 @@ protected:
     virtual ~Character();
 
 public:
-    double _x;
-    double _y;
+    int _x;
+    int _y;
     int _life;
-    double GetX() const;
-    void SetX(double _X);
-    double GetY() const;
-    void SetY(double _Y);
+    int GetX() const;
+    void SetX(int _X);
+    int GetY() const;
+    void SetY(int _Y);
     int GetLife() const;
     void SetLife(int _LIFE);
     void virtual Update();
