@@ -4,7 +4,6 @@ TimeManager &timeManagerPinky = TimeManager::GetInstance();
 
 Pinky::Pinky(){
 	this->SetLife(1);
-	std::cout << "life pinky" << this->GetLife() << std::endl;
 	this->SetX(12);
 	this->SetY(14);
 }

@@ -11,7 +11,7 @@ public:
 	int BallsWasEat(int tile, Scores &scores, GameStatus &gameStatus);
 	int _totalBalls;
 	int GetTotalBalls();
-	void SetTotalBalls(int totalBalls);
+	void SetTotalBalls(int _totalBallsBalls);
 	void addObserver(Observer<int>* obs);
 	void removeObserver(Observer<int>* obs);
 private:

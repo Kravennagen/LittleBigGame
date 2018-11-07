@@ -60,19 +60,18 @@ int Options::WindowOptions(sf::RenderWindow &window, Options options, sf::Sound 
 						case sf::Keyboard::Return:
 							switch(options.GetPressedItem()){
 								case 0:
-									std::cout << std::to_string(sound.getStatus()) << std::endl; 
+									
 									if(sound.getStatus() == sf::Sound::Status::Playing){
 										std::cout << std::to_string(sound.getStatus()) << std::endl;
-										//sound.setLoop(false);
+										
 										sound.stop();
 									}else{
-										std::cout << std::to_string(sound.getStatus()) << std::endl;
+										
 										sound.play();
 										sound.setLoop(true);
 									}
 									break;
 								case 1:
-									//window.create(sf::VideoMode(800, 600), "pacman", sf::Style::Fullscreen);
 									std::cout << "Go back button has been pressed" << std::endl;
 									return 0;
 									break;
