@@ -42,7 +42,6 @@ int main(){
     Menu menu(window.getSize().x, window.getSize().y);
     Options options(window.getSize().x, window.getSize().y);
     Map map(window.getSize().x, window.getSize().y);
-    EndGame endGame(window.getSize().x, window.getSize().y);
     
 
     while(window.isOpen()){

@@ -2,6 +2,7 @@
 #define SCORES_HH
 
 #include "Observable.hpp"
+#include <iostream>
 
 class Scores: public Observable<int>{
 public:
@@ -12,7 +13,6 @@ public:
 	int GetScores();
 	void SetScores(int scores);
 	void addObserver(Observer<int>* obs);
-
 	void removeObserver(Observer<int>* obs);
 protected:
 	Event<int>* getEvent();

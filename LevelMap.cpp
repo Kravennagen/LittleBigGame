@@ -1,10 +1,10 @@
 #include "LevelMap.hh"
 
-int LevelMap::level[31][28];
+//int LevelMap::level[31][28];
 
 LevelMap::LevelMap(){
 	
-	int level[31][28] =
+	/*int level[31][28] =
 	{
 
 		{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
@@ -41,14 +41,14 @@ LevelMap::LevelMap(){
 	};
 	w = 31;
 	h = 28;
-	m[w][h];
+	m[w][h];*/
 	
 	/*for( int r = 0; r < h; r++ )
             for( int s = 0; s < w; s++ )
                 m[s][r] = level[r][s];*/
     // on crée la tilemap avec le niveau précédemment défini
 
-	if (!texture.loadFromFile("map.png"))
+	/*if (!texture.loadFromFile("map.png"))
 	{
     	// Erreur...
 		std::cout << "Texture Error" << std::endl;
@@ -64,7 +64,7 @@ LevelMap::LevelMap(){
   // Create a sprite
 
 	sprite.setTexture(texture);
-	sprite.setOrigin(0,-50);
+	sprite.setOrigin(0,-50);*/
 }
 
 LevelMap::~LevelMap(){

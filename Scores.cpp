@@ -16,7 +16,9 @@ void Scores::SetScores(int _Scores){
 }
 
 void Scores::AddPoint(int points){
+	
 	SetScores(GetScores() + points);
+	
 	notify();
 }
 

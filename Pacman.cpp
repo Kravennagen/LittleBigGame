@@ -41,11 +41,3 @@ void Pacman::PacmanDied(){
 }
 
 
-int Pacman::DisplayPacman()
-{
-	LevelMap levelmap;
-
-	if (!levelmap.pacman.move("pacman.png", sf::Vector2u(16, 16), this->GetX(), this->GetY()))
-        	return -1;
-
-}

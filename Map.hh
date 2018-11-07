@@ -16,8 +16,10 @@
 #include "Clyde.hh"
 #include "Inky.hh"
 #include "Blinky.hh"
-#include "LevelMap.hh"
 #include "Pacman.hh"
+#include "Balls.hh"
+#include "GameStatus.hh"
+#include "EndGame.hh"
 
 #define MAX_NUMBER_OF_ITEMS_MAP 6
 
@@ -29,12 +31,21 @@ public:
 	virtual void refresh(Event<int>* e) override;
 	void drawText(sf::RenderWindow &window, int score, int time, int fps);
 	int WindowMap(sf::RenderWindow &window, Map map, Scores scores);
-	
+	int w;
+	int h;
+	int operator() ( int x, int y ) { return m[x][y]; };
+	char m[31][28];
+	int level[31][28];
+	sf::Texture texture;
+	sf::Sprite sprite;
+	TileMap tileMap;
+	TileMap tilePacman;
 	
 protected:
 	sf::Font font;
 	sf::Text text[MAX_NUMBER_OF_ITEMS_MAP];
 	sf::Event event;
+	GameStatus gameStatus;
 };
 
 #endif //MAP_HH

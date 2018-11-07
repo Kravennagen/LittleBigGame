@@ -2,7 +2,6 @@
 
 EndGame::EndGame(float width, float height){
 	if(!font.loadFromFile("/usr/share/fonts/truetype/freefont/FreeMono.ttf")){
-        //error
 		std::cout << "Font error End Game" << std::endl; 
 	}
 

@@ -13,7 +13,7 @@ class LevelMap{
 public:
 	LevelMap();
 	~LevelMap();
-	int w;
+	/*int w;
 	int h;
 	int operator() ( int x, int y ) { return m[x][y]; };
 	char m[31][28];
@@ -21,7 +21,7 @@ public:
 	sf::Texture texture;
 	sf::Sprite sprite;
 	TileMap tileMap;
-	TileMap pacman;
+	TileMap pacman;*/
 };
 
 #endif //LEVELMAP_HH

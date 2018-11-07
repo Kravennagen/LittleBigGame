@@ -4,7 +4,7 @@
 #include <list>
 #include <algorithm>
 #include <iostream>
-#include "LevelMap.hh"
+#include "Map.hh"
 
 class PathFinding{
 public:
@@ -42,7 +42,9 @@ public:
 	int path(std::list<point>& path);
 
 
-	LevelMap levelM; 
+	//LevelMap levelM; 
+	Map levl;
+	Map.lvl lvl;
 	point end;
 	point start;
     point neighbours[31];

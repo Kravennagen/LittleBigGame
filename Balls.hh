@@ -1,14 +1,21 @@
 #ifndef BALLS_HH
 #define BALLS_HH
 
-class Balls{
+#include "Scores.hh"
+#include "GameStatus.hh"
+
+class Balls: public Observable<int>{
 public:
 	Balls();
 	~Balls();
-	int BallsWasEat();
-
+	int BallsWasEat(int tile, Scores &scores, GameStatus &gameStatus);
+	int _totalBalls;
+	int GetTotalBalls();
+	void SetTotalBalls(int totalBalls);
+	void addObserver(Observer<int>* obs);
+	void removeObserver(Observer<int>* obs);
 private:
-	
+	Event<int>* getEvent();
 
 };
 

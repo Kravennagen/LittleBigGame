@@ -3,6 +3,8 @@
 
 #include "TimeManager.hh"
 
+#include <unistd.h>
+
 class FPS{
 	FPS();
 	~FPS();
