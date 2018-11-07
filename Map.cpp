@@ -118,6 +118,9 @@ int Map::WindowMap(sf::RenderWindow &window, Map map, Scores scores){
 	while(window.isOpen()){
 		while(window.pollEvent(event)){
 			blinky.move();
+			pinky.move();
+			inky.move();
+			clyde.move();
 			if(event.type == sf::Event::Closed)
 				window.close();
 			switch(event.type){

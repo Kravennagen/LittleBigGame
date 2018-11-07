@@ -40,3 +40,20 @@ void Pinky::CheckPosition(int _x, int _y, int level[31][28]){
 	}
 	
 }
+
+void Pinky::move(){
+	point s, e( 26, 1 );
+
+	if(asPinky.search(s, e, mPinky)){
+		std::list<point> path;
+		int c = asPinky.path( path );
+		int j = 0;
+		
+		for(std::list<point>::iterator i = path.begin(); i!= path.end(); i++){
+			if(j == 1){
+				std::cout << "(" << ( *i ).x << ", " << ( *i ).y << ") " << std::endl;
+			}
+			j++;
+		}
+	}
+}

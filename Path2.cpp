@@ -4,7 +4,7 @@
  
 class point {
 public:
-    point( int a = 1, int b = 1 ) { x = a; y = b; }
+    point( int a = 1, int b = 2 ) { x = a; y = b; }
     bool operator ==( const point& o ) { return o.x == x && o.y == y; }
     point operator +( const point& o ) { return point( o.x + x, o.y + y ); }
     int x, y;
@@ -49,10 +49,10 @@ public:
         };
         w = 31;
         h = 28;
-        m[w][h];
-        /*for( int r = 0; r < h; r++ )
+        //m[w][h]
+        for( int r = 0; r < h; r++ )
             for( int s = 0; s < w; s++ )
-                m[s][r] = t[r][s];*/
+                m[r][s] = t[r][s];
     }
     int operator() ( int x, int y ) { return m[x][y]; }
     char m[31][28];
@@ -76,7 +76,6 @@ public:
     }
  
     int calcDist( point& p ){
-        // need a better heuristic
         int x = end.x - p.x, y = end.y - p.y;
         return( x * x + y * y );
     }
@@ -104,14 +103,10 @@ public:
         int stepCost, nc, dist;
         point neighbour;
         for( int x = 0; x < 4; x++ ) {
-            // one can make diagonals have different cost
             stepCost = x < 4 ? 1 : 1;
             neighbour = n.pos + neighbours[x];
             if( neighbour == end ) return true;
-                std::cout << neighbour.x << neighbour.y << std::endl;
-                std::cout << isValid(neighbour) << " " << m(neighbour.x, neighbour.y) << std::endl;
-            if( isValid( neighbour ) && m( neighbour.x, neighbour.y ) != 0 ) {
-                std::cout << "dans if valid" << std::endl;
+                if( isValid( neighbour ) && m( neighbour.x, neighbour.y ) != 0 ) {
                 nc = stepCost + n.cost;
                 dist = calcDist( neighbour );
                 if( !existPoint( neighbour, nc + dist ) ) {

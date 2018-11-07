@@ -14,10 +14,12 @@ public:
 	void addObserver(Observer<int>* obs);
 
 	void removeObserver(Observer<int>* obs);
-
+	void move();
 protected:
 	Event<int>* getEvent();
-
+	mapPath mClyde;
+	
+	aStar asClyde;
 };
 
 #endif //CLYDE_HH

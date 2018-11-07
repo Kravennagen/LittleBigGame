@@ -6,7 +6,6 @@
 #include <iostream>
 #include "Observable.hpp"
 
-
 class Pinky : public Observable<int>, public Character
 {
 public:
@@ -19,9 +18,13 @@ public:
 	void removeObserver(Observer<int>* obs);
 
 	void CheckPosition(int _x, int _y, int level[31][28]);
+	void move();
 
 protected:
 	Event<int>* getEvent();
+	mapPath mPinky;
+	
+	aStar asPinky;
 };
 
 #endif //PINKY_HH

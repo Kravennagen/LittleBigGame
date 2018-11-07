@@ -4,6 +4,7 @@
 
 
 #include "AbstractEntity.hh"
+#include "Path2.cpp"
 
 class Character: AbstractEntity {
 

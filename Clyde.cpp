@@ -27,3 +27,20 @@ void Clyde::removeObserver(Observer<int>* obs){
 Event<int>* Clyde::getEvent(){
 	return new Event<int>((int *)this->GetLife());
 }
+
+void Clyde::move(){
+	point s, e( 26, 1 );
+
+	if(asClyde.search(s, e, mClyde)){
+		std::list<point> path;
+		int c = asClyde.path( path );
+		int j = 0;
+		
+		for(std::list<point>::iterator i = path.begin(); i!= path.end(); i++){
+			if(j == 1){
+				std::cout << "(" << ( *i ).x << ", " << ( *i ).y << ") " << std::endl;
+			}
+			j++;
+		}
+	}
+}

@@ -4,7 +4,6 @@
 #include "TimeManager.hh"
 #include "Character.hh"
 #include "Observable.hpp"
-#include "Path2.cpp"
 
 class Blinky: public Character, public Observable<int>{
 public:
@@ -18,9 +17,9 @@ public:
 	void move();
 protected:
 	Event<int>* getEvent();
-	mapPath m;
+	mapPath mBlinky;
 	
-	aStar as;
+	aStar asBlinky;
 };
 
 #endif //BLINKY_HH
