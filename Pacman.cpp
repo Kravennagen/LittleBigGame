@@ -4,7 +4,7 @@ TimeManager &timeManagerPacman = TimeManager::GetInstance();
 
 Pacman::Pacman(){
 	this->SetLife(3);
-	this->SetX(7);
+	this->SetX(13);
 	this->SetY(23);
 	std::cout << "x " << this->GetX() << "y " << this->GetY() << std::endl;
 }
