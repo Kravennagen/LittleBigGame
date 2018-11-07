@@ -18,12 +18,10 @@ void Inky::Update(){
 
 void Inky::addObserver(Observer<int>* obs){
 		Observable<int>::addObserver(obs);
-		std::cout << "+1 observer" << std::endl;
 }
 
 void Inky::removeObserver(Observer<int>* obs){
 		Observable<int>::removeObserver(obs);
-		std::cout << "-1 observer" << std::endl;
 }
 
 Event<int>* Inky::getEvent(){

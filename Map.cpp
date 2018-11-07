@@ -117,7 +117,7 @@ int Map::WindowMap(sf::RenderWindow &window, Map map, Scores scores){
 	instance.Start();
 	while(window.isOpen()){
 		while(window.pollEvent(event)){
-			
+			blinky.move();
 			if(event.type == sf::Event::Closed)
 				window.close();
 			switch(event.type){
@@ -177,7 +177,6 @@ int Map::WindowMap(sf::RenderWindow &window, Map map, Scores scores){
 			EndGame endGame(window.getSize().x, window.getSize().y);
 			endGame.WindowEndGame(window, endGame);
 		}
-		std::cout << gameStatus.GetStatus() << std::endl;
 		instance.Update();
 		float f = fps.getFps(instance);
 		if (!tileMap.load("tile_gum.png", sf::Vector2u(16, 16), level, 28, 31))

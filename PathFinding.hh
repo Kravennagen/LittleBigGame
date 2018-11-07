@@ -44,7 +44,7 @@ public:
 
 	//LevelMap levelM; 
 	Map levl;
-	Map.lvl lvl;
+	//Map.lvl lvl;
 	point end;
 	point start;
     point neighbours[31];

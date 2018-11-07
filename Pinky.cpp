@@ -18,12 +18,10 @@ void Pinky::Update(){
 
 void Pinky::addObserver(Observer<int>* obs){
 		Observable<int>::addObserver(obs);
-		std::cout << "+1 observer" << std::endl;
 }
 
 void Pinky::removeObserver(Observer<int>* obs){
 		Observable<int>::removeObserver(obs);
-		std::cout << "-1 observer" << std::endl;
 }
 
 Event<int>* Pinky::getEvent(){

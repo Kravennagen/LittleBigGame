@@ -62,7 +62,6 @@ int Options::WindowOptions(sf::RenderWindow &window, Options options, sf::Sound 
 								case 0:
 									
 									if(sound.getStatus() == sf::Sound::Status::Playing){
-										std::cout << std::to_string(sound.getStatus()) << std::endl;
 										
 										sound.stop();
 									}else{

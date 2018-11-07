@@ -12,12 +12,10 @@ Pacman::~Pacman(){}
 
 void Pacman::addObserver(Observer<int>* obs){
 		Observable<int>::addObserver(obs);
-		std::cout << "+1 observer" << std::endl;
 }
 
 void Pacman::removeObserver(Observer<int>* obs){
 		Observable<int>::removeObserver(obs);
-		std::cout << "-1 observer" << std::endl;
 }
 
 void Pacman::Update(){

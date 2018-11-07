@@ -17,12 +17,10 @@ void Blinky::Update(){
 
 void Blinky::addObserver(Observer<int>* obs){
 		Observable<int>::addObserver(obs);
-		std::cout << "+1 observer" << std::endl;
 }
 
 void Blinky::removeObserver(Observer<int>* obs){
 		Observable<int>::removeObserver(obs);
-		std::cout << "-1 observer" << std::endl;
 }
 
 Event<int>* Blinky::getEvent(){
@@ -30,3 +28,17 @@ Event<int>* Blinky::getEvent(){
 }
 
 
+void Blinky::move(){
+	point s(1, 1), e( 26, 1 );
+
+	if(as.search(s, e, m)){
+		std::list<point> path;
+		int j = 0;
+		for(std::list<point>::iterator i = path.begin(); i!= path.end(); i++){
+			if(j == 1){
+				std::cout << "(" << ( *i ).x << ", " << ( *i ).y << ") " << std::endl;
+			}
+			j++;
+		}
+	}
+}

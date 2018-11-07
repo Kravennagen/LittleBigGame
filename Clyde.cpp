@@ -18,12 +18,10 @@ void Clyde::Update(){
 
 void Clyde::addObserver(Observer<int>* obs){
 		Observable<int>::addObserver(obs);
-		std::cout << "+1 observer" << std::endl;
 }
 
 void Clyde::removeObserver(Observer<int>* obs){
 		Observable<int>::removeObserver(obs);
-		std::cout << "-1 observer" << std::endl;
 }
 
 Event<int>* Clyde::getEvent(){
