@@ -54,8 +54,8 @@ void Pinky::move(Pacman &pacman){
 			if(j == 1){
 				std::cout << "pinky x: " << this->GetX() << "pinky y: " << this->GetY() << std::endl;
 				std::cout << "(" << ( *i ).x << ", " << ( *i ).y << ") " << std::endl;
-				SetX(( *i ).x);
-				SetY(( *i ).y);
+				this->SetX(( *i ).x);
+				this->SetY(( *i ).y);
 			}
 			j++;
 		}

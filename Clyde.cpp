@@ -29,7 +29,7 @@ Event<int>* Clyde::getEvent(){
 }
 
 void Clyde::move(Pacman &pacman){
-	point s(GetX(), GetY()), e(pacman.GetX(), pacman.GetY());
+	point s(this->GetX(), this->GetY()), e(pacman.GetX(), pacman.GetY());
 
 	if(asClyde.search(s, e, mClyde)){
 		std::list<point> path;
@@ -39,6 +39,8 @@ void Clyde::move(Pacman &pacman){
 		for(std::list<point>::iterator i = path.begin(); i!= path.end(); i++){
 			if(j == 1){
 				std::cout << "(" << ( *i ).x << ", " << ( *i ).y << ") " << std::endl;
+				this->SetX(( *i ).x);
+				this->SetY(( *i ).y);				
 			}
 			j++;
 		}
