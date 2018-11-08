@@ -30,8 +30,8 @@ Event<int>* Blinky::getEvent(){
 }
 
 
-void Blinky::move(){
-	point s(GetX(), GetY()), e( 26, 1 );
+void Blinky::move(Pacman &pacman){
+	point s(GetX(), GetY()), e(pacman.GetX(), pacman.GetY());
 
 	if(asBlinky.search(s, e, mBlinky)){
 		std::list<point> path;

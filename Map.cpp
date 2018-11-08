@@ -117,10 +117,19 @@ int Map::WindowMap(sf::RenderWindow &window, Map map, Scores scores){
 	instance.Start();
 	while(window.isOpen()){
 		while(window.pollEvent(event)){
-			blinky.move();
-			pinky.move();
-			inky.move();
-			clyde.move();
+			blinky.move(pacman);
+			pinky.move(pacman);
+			inky.move(pacman);
+			clyde.move(pacman);
+
+			if (!tilePinky.moveGhost("pinky.png", sf::Vector2u(16, 16), pinky.GetX(), pinky.GetY()))
+				return -1;
+			if (!tileBlinky.moveGhost("blinky.png", sf::Vector2u(16, 16), blinky.GetX(), blinky.GetY()))
+				return -1;
+			if (!tileInky.moveGhost("inky.png", sf::Vector2u(16, 16), inky.GetX(), inky.GetY()))
+				return -1;
+			if (!tileClyde.moveGhost("clyde.png", sf::Vector2u(16, 16), clyde.GetX(), clyde.GetY()))
+				return -1;
 			if(event.type == sf::Event::Closed)
 				window.close();
 			switch(event.type){
@@ -128,52 +137,45 @@ int Map::WindowMap(sf::RenderWindow &window, Map map, Scores scores){
 				switch(event.key.code)
 				{
 					case sf::Keyboard::Down:
-					if (!tilePinky.moveGhost("pinky.png", sf::Vector2u(16, 16), pinky.GetX(), pinky.GetY()))
-        				return -1;
-        			if (!tileBlinky.moveGhost("blinky.png", sf::Vector2u(16, 16), blinky.GetX(), blinky.GetY()))
-        				return -1;
-        			if (!tileInky.moveGhost("inky.png", sf::Vector2u(16, 16), inky.GetX(), inky.GetY()))
-        				return -1;
-        			if (!tileClyde.moveGhost("clyde.png", sf::Vector2u(16, 16), clyde.GetX(), clyde.GetY()))
-        				return -1;
+					
 					if(level[pacman.GetY()+1][pacman.GetX()] != 0)
 						pacman.SetY(pacman.GetY()+1);
-						
-						balls.BallsWasEat(level[pacman.GetY()][pacman.GetX()], scores, gameStatus);
-						level[pacman.GetY()][pacman.GetX()] = 1;
-						
+					
+					balls.BallsWasEat(level[pacman.GetY()][pacman.GetX()], scores, gameStatus);
+					level[pacman.GetY()][pacman.GetX()] = 1;
+					
 					if (!tilePacman.move("pacman.png", sf::Vector2u(16, 16), pacman.GetX(), pacman.GetY()))
-        				return -1;
+						return -1;
 					break;
 					case sf::Keyboard::Up:
 					if(level[pacman.GetY()-1][pacman.GetX()] != 0)
 						pacman.SetY(pacman.GetY()-1);
-						balls.BallsWasEat(level[pacman.GetY()][pacman.GetX()], scores, gameStatus);
-						level[pacman.GetY()][pacman.GetX()] = 1;
-						
+					balls.BallsWasEat(level[pacman.GetY()][pacman.GetX()], scores, gameStatus);
+					level[pacman.GetY()][pacman.GetX()] = 1;
+					
 					
 					if (!tilePacman.move("pacman.png", sf::Vector2u(16, 16), pacman.GetX(), pacman.GetY()))
-        				return -1;
+						return -1;
 					break;
 					case sf::Keyboard::Left:
 					if(level[pacman.GetY()][pacman.GetX()-1] != 0)
 						pacman.SetX(pacman.GetX()-1);
-						balls.BallsWasEat(level[pacman.GetY()][pacman.GetX()], scores, gameStatus);
-						level[pacman.GetY()][pacman.GetX()] = 1;
-						
+					balls.BallsWasEat(level[pacman.GetY()][pacman.GetX()], scores, gameStatus);
+					level[pacman.GetY()][pacman.GetX()] = 1;
+					
 					
 					if (!tilePacman.move("pacman.png", sf::Vector2u(16, 16), pacman.GetX(), pacman.GetY()))
-        				return -1;
+						return -1;
 					break;
 					case sf::Keyboard::Right:
 					if(level[pacman.GetY()][pacman.GetX()+1] != 0)
 						pacman.SetX(pacman.GetX()+1);
-						balls.BallsWasEat(level[pacman.GetY()][pacman.GetX()], scores, gameStatus);
-						level[pacman.GetY()][pacman.GetX()] = 1;
-						
+					balls.BallsWasEat(level[pacman.GetY()][pacman.GetX()], scores, gameStatus);
+					level[pacman.GetY()][pacman.GetX()] = 1;
+					
 					
 					if (!tilePacman.move("pacman.png", sf::Vector2u(16, 16), pacman.GetX(), pacman.GetY()))
-        				return -1;
+						return -1;
 
 					break;
 				}

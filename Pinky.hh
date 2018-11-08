@@ -5,6 +5,7 @@
 #include "Character.hh"
 #include <iostream>
 #include "Observable.hpp"
+#include "Pacman.hh"
 
 class Pinky : public Observable<int>, public Character
 {
@@ -18,7 +19,7 @@ public:
 	void removeObserver(Observer<int>* obs);
 
 	void CheckPosition(int _x, int _y, int level[31][28]);
-	void move();
+	void move(Pacman &pacman);
 
 protected:
 	Event<int>* getEvent();

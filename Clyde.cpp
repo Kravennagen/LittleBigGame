@@ -28,8 +28,8 @@ Event<int>* Clyde::getEvent(){
 	return new Event<int>((int *)this->GetLife());
 }
 
-void Clyde::move(){
-	point s(GetX(), GetY()), e( 26, 1 );
+void Clyde::move(Pacman &pacman){
+	point s(GetX(), GetY()), e(pacman.GetX(), pacman.GetY());
 
 	if(asClyde.search(s, e, mClyde)){
 		std::list<point> path;

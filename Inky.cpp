@@ -28,8 +28,8 @@ Event<int>* Inky::getEvent(){
 	return new Event<int>((int *)this->GetLife());
 }
 
-void Inky::move(){
-	point s(GetX(), GetY()), e( 26, 1 );
+void Inky::move(Pacman &pacman){
+	point s(GetX(), GetY()), e(pacman.GetX(), pacman.GetY());
 
 	if(asInky.search(s, e, mInky)){
 		std::list<point> path;
