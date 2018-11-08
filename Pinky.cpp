@@ -4,7 +4,7 @@ TimeManager &timeManagerPinky = TimeManager::GetInstance();
 
 Pinky::Pinky(){
 	this->SetLife(1);
-	this->SetX(12);
+	this->SetX(13);
 	this->SetY(14);
 }
 
@@ -42,7 +42,7 @@ void Pinky::CheckPosition(int _x, int _y, int level[31][28]){
 }
 
 void Pinky::move(){
-	point s, e( 26, 1 );
+	point s(GetX(), GetY()), e( 26, 1 );
 
 	if(asPinky.search(s, e, mPinky)){
 		std::list<point> path;

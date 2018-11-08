@@ -40,6 +40,10 @@ public:
 	sf::Sprite sprite;
 	TileMap tileMap;
 	TileMap tilePacman;
+	TileMap tilePinky;
+	TileMap tileClyde;
+	TileMap tileInky;
+	TileMap tileBlinky;
 	
 protected:
 	sf::Font font;

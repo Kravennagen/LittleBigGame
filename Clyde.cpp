@@ -4,8 +4,8 @@ TimeManager &timeManagerClyde = TimeManager::GetInstance();
 
 Clyde::Clyde(){
 	this->SetLife(1);
-	this->SetX(0);
-	this->SetY(0);
+	this->SetX(13);
+	this->SetY(13);
 }
 
 Clyde::~Clyde(){}
@@ -29,7 +29,7 @@ Event<int>* Clyde::getEvent(){
 }
 
 void Clyde::move(){
-	point s, e( 26, 1 );
+	point s(GetX(), GetY()), e( 26, 1 );
 
 	if(asClyde.search(s, e, mClyde)){
 		std::list<point> path;

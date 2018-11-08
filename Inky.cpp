@@ -4,8 +4,8 @@ TimeManager &timeManagerInky = TimeManager::GetInstance();
 
 Inky::Inky(){
 	this->SetLife(1);
-	this->SetX(0);
-	this->SetY(0);
+	this->SetX(13);
+	this->SetY(15);
 }
 
 Inky::~Inky(){}
@@ -29,7 +29,7 @@ Event<int>* Inky::getEvent(){
 }
 
 void Inky::move(){
-	point s, e( 26, 1 );
+	point s(GetX(), GetY()), e( 26, 1 );
 
 	if(asInky.search(s, e, mInky)){
 		std::list<point> path;

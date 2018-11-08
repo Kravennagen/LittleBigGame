@@ -2,9 +2,12 @@
 #include <algorithm>
 #include <iostream>
  
+
+
 class point {
 public:
-    point( int a = 1, int b = 2 ) { x = a; y = b; }
+    
+    point( int a = 14, int b = 14 ) { x = a; y = b; }
     bool operator ==( const point& o ) { return o.x == x && o.y == y; }
     point operator +( const point& o ) { return point( o.x + x, o.y + y ); }
     int x, y;
@@ -100,6 +103,7 @@ public:
     }
  
     bool fillOpen( node& n ) {
+        //std::cout << "node x " << n.pos.x << std::endl;
         int stepCost, nc, dist;
         point neighbour;
         for( int x = 0; x < 4; x++ ) {
@@ -122,6 +126,7 @@ public:
     }
  
     bool search( point& s, point& e, mapPath& mp ) {
+        //std::cout << "s x : " << s.x << "s y : " << s.y << std::endl;
         node n; end = e; start = s; m = mp;
         n.cost = 0; n.pos = s; n.parent = 0; n.dist = calcDist( s ); 
         open.push_back( n );

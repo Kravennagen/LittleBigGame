@@ -4,6 +4,8 @@ TimeManager &timeManagerBlinky = TimeManager::GetInstance();
 
 Blinky::Blinky(){
 	this->SetLife(1);
+	this->SetX(13);
+	this->SetY(12);
 	
 }
 
@@ -29,7 +31,7 @@ Event<int>* Blinky::getEvent(){
 
 
 void Blinky::move(){
-	point s, e( 26, 1 );
+	point s(GetX(), GetY()), e( 26, 1 );
 
 	if(asBlinky.search(s, e, mBlinky)){
 		std::list<point> path;
