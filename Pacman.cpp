@@ -30,11 +30,16 @@ Event<int>* Pacman::getEvent(){
 
 void Pacman::PacmanDied(){
 
-	//if(GetLife() <= 0){
-	//endGame();}
-	//else{}->
+
+	std::cout << "life pacman: " << this->GetLife() << std::endl;
 	this->SetLife(this->GetLife() - 1);
+	std::cout << "life pacman: " << this->GetLife() << std::endl;
 	notify();
+	if(this->GetLife() <= 0){
+		std::cout << "game status : " << gameStatus.GetStatus() << std::endl;
+		gameStatus.SetStatus(0);
+		std::cout << "game status : " << gameStatus.GetStatus() << std::endl;
+	}
 }
 
 

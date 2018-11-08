@@ -18,7 +18,7 @@
 #include "Blinky.hh"
 #include "Pacman.hh"
 #include "Balls.hh"
-#include "GameStatus.hh"
+#include "TileMap.hpp"
 #include "EndGame.hh"
 
 #define MAX_NUMBER_OF_ITEMS_MAP 6

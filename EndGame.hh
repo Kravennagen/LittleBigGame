@@ -16,7 +16,7 @@ public:
 
 	void draw(sf::RenderWindow &Window);
 	int GetPressedItem(){return selectedItemIndex;}
-	int WindowEndGame(sf::RenderWindow &window, EndGame endGame);
+	int WindowEndGame(sf::RenderWindow &window, EndGame endGame, Pacman &pacman);
 private:
 	int selectedItemIndex;
     sf::Font font;

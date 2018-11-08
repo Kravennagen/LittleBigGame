@@ -4,8 +4,8 @@ TimeManager &timeManagerPinky = TimeManager::GetInstance();
 
 Pinky::Pinky(){
 	this->SetLife(1);
-	this->SetX(13);
-	this->SetY(14);
+	this->SetX(1);
+	this->SetY(1);
 }
 
 Pinky::~Pinky(){}
@@ -42,16 +42,20 @@ void Pinky::CheckPosition(int _x, int _y, int level[31][28]){
 }
 
 void Pinky::move(Pacman &pacman){
-	point s(GetX(), GetY()), e( pacman.GetX(), pacman.GetY());
+	point s(this->GetX(), this->GetY()), e( pacman.GetX(), pacman.GetY());
 
 	if(asPinky.search(s, e, mPinky)){
 		std::list<point> path;
+
 		int c = asPinky.path( path );
 		int j = 0;
 		
 		for(std::list<point>::iterator i = path.begin(); i!= path.end(); i++){
 			if(j == 1){
+				std::cout << "pinky x: " << this->GetX() << "pinky y: " << this->GetY() << std::endl;
 				std::cout << "(" << ( *i ).x << ", " << ( *i ).y << ") " << std::endl;
+				SetX(( *i ).x);
+				SetY(( *i ).y);
 			}
 			j++;
 		}

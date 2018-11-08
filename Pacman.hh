@@ -6,7 +6,7 @@
 #include "Observable.hpp"
 #include <iostream>
 #include "SFML/Graphics.hpp"
-#include "LevelMap.hh"
+#include "GameStatus.hh"
 
 class Pacman: public Observable<int>, public Character {
 public:
@@ -25,7 +25,7 @@ public:
 
 protected:
 	Event<int>* getEvent();
-
+	GameStatus gameStatus;
 };
 
 #endif //PACMAN_HH
