@@ -31,7 +31,14 @@ Event<int>* Inky::getEvent(){
 void Inky::move(Pacman &pacman){
 	aStar asInky;
 	point s(this->GetX(), this->GetY()), e(pacman.GetX(), pacman.GetY());
-
+	if( GetX()+1 == pacman.GetX() && GetY() == pacman.GetY() ||  
+        GetX()-1 == pacman.GetX() && GetY() == pacman.GetY() || 
+         GetX() == pacman.GetX() && GetY()+1 == pacman.GetY() ||
+        GetX() == pacman.GetX() && GetY()-1 == pacman.GetY()){ 
+        SetX(pacman.GetX());
+        SetY(pacman.GetY());
+        }
+        else{
 	if(asInky.search(s, e, mInky)){
 		std::list<point> path;
 		int c = asInky.path( path );
@@ -45,4 +52,5 @@ void Inky::move(Pacman &pacman){
 			j++;
 		}
 	}
+}
 }

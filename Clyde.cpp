@@ -31,7 +31,14 @@ Event<int>* Clyde::getEvent(){
 void Clyde::move(Pacman &pacman){
 	aStar asClyde;
 	point s(this->GetX(), this->GetY()), e(pacman.GetX(), pacman.GetY());
-
+	if( GetX()+1 == pacman.GetX() && GetY() == pacman.GetY() ||  
+        GetX()-1 == pacman.GetX() && GetY() == pacman.GetY() || 
+         GetX() == pacman.GetX() && GetY()+1 == pacman.GetY() ||
+        GetX() == pacman.GetX() && GetY()-1 == pacman.GetY()){ 
+        SetX(pacman.GetX());
+        SetY(pacman.GetY());
+        }
+        else{
 	if(asClyde.search(s, e, mClyde)){
 		std::list<point> path;
 		int c = asClyde.path( path );
@@ -44,5 +51,6 @@ void Clyde::move(Pacman &pacman){
 			}
 			j++;
 		}
+	}
 	}
 }

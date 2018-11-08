@@ -44,7 +44,14 @@ void Pinky::CheckPosition(int _x, int _y, int level[31][28]){
 void Pinky::move(Pacman &pacman){
 	aStar asPinky;
 	point s(this->GetX(), this->GetY()), e( pacman.GetX(), pacman.GetY());
-
+	 if( GetX()+1 == pacman.GetX() && GetY() == pacman.GetY() ||  
+        GetX()-1 == pacman.GetX() && GetY() == pacman.GetY() || 
+         GetX() == pacman.GetX() && GetY()+1 == pacman.GetY() ||
+        GetX() == pacman.GetX() && GetY()-1 == pacman.GetY()){ 
+        SetX(pacman.GetX());
+        SetY(pacman.GetY());
+        }
+	else{
 	if(asPinky.search(s, e, mPinky)){
 		std::list<point> path;
 
@@ -59,5 +66,6 @@ void Pinky::move(Pacman &pacman){
 			}
 			j++;
 		}
+	}
 	}
 }

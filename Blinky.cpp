@@ -33,6 +33,14 @@ Event<int>* Blinky::getEvent(){
 void Blinky::move(Pacman &pacman){
 	aStar asBlinky;
 	point s(this->GetX(), this->GetY()), e(pacman.GetX(), pacman.GetY());
+	if( GetX()+1 == pacman.GetX() && GetY() == pacman.GetY() ||  
+        GetX()-1 == pacman.GetX() && GetY() == pacman.GetY() || 
+         GetX() == pacman.GetX() && GetY()+1 == pacman.GetY() ||
+        GetX() == pacman.GetX() && GetY()-1 == pacman.GetY()){ 
+        SetX(pacman.GetX());
+        SetY(pacman.GetY());
+        }
+        else{
 
 	if(asBlinky.search(s, e, mBlinky)){
 		std::list<point> path;
@@ -49,4 +57,5 @@ void Blinky::move(Pacman &pacman){
 			j++;
 		}
 	}
+}
 }
