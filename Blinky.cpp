@@ -31,6 +31,7 @@ Event<int>* Blinky::getEvent(){
 
 
 void Blinky::move(Pacman &pacman){
+	aStar asBlinky;
 	point s(this->GetX(), this->GetY()), e(pacman.GetX(), pacman.GetY());
 
 	if(asBlinky.search(s, e, mBlinky)){

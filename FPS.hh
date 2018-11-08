@@ -15,6 +15,7 @@ public:
 	FPS(const FPS&) = delete;
 	FPS&operator=(const FPS&) = delete;
 	static FPS &GetInstanceFPS();
+	float fps;
 };
 
 #endif

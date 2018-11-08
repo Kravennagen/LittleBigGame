@@ -29,6 +29,7 @@ Event<int>* Inky::getEvent(){
 }
 
 void Inky::move(Pacman &pacman){
+	aStar asInky;
 	point s(this->GetX(), this->GetY()), e(pacman.GetX(), pacman.GetY());
 
 	if(asInky.search(s, e, mInky)){

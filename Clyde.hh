@@ -20,7 +20,7 @@ protected:
 	Event<int>* getEvent();
 	mapPath mClyde;
 	
-	aStar asClyde;
+	
 };
 
 #endif //CLYDE_HH

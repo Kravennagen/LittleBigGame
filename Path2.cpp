@@ -51,14 +51,14 @@ public:
 
         };
         w = 31;
-        h = 28;
+        h = 31;
         //m[w][h]
         for( int r = 0; r < h; r++ )
             for( int s = 0; s < w; s++ )
-                m[r][s] = t[r][s];
+                m[s][r] = t[r][s];
     }
     int operator() ( int x, int y ) { return m[x][y]; }
-    char m[31][28];
+    char m[31][31];
     int w, h;
 };
  
@@ -158,7 +158,7 @@ public:
     }
  
     mapPath m; point end, start;
-    point neighbours[21];
+    point neighbours[4];
     std::list<node> open;
     std::list<node> closed;
 };

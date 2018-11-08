@@ -20,7 +20,7 @@ protected:
 	Event<int>* getEvent();
 	mapPath mInky;
 	
-	aStar asInky;
+	
 };
 
 #endif //INKY_HH

@@ -25,7 +25,7 @@ protected:
 	Event<int>* getEvent();
 	mapPath mPinky;
 	
-	aStar asPinky;
+	
 };
 
 #endif //PINKY_HH

@@ -20,7 +20,7 @@ protected:
 	Event<int>* getEvent();
 	mapPath mBlinky;
 	
-	aStar asBlinky;
+	
 };
 
 #endif //BLINKY_HH

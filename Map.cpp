@@ -119,17 +119,18 @@ int Map::WindowMap(sf::RenderWindow &window, Map map, Scores scores){
 	while(window.isOpen()){
 
 		while(window.pollEvent(event)){
-
-			//
-
-			
-			/**/
 			if(event.type == sf::Event::Closed)
 				window.close();
 			switch(event.type){
 				case sf::Event::KeyReleased:
+					pinky.move(pacman);
+					blinky.move(pacman);
+
+					inky.move(pacman);
+					clyde.move(pacman);
 				switch(event.key.code)
 				{
+
 					case sf::Keyboard::Down:
 					
 					if(level[pacman.GetY()+1][pacman.GetX()] != 0)
@@ -137,26 +138,13 @@ int Map::WindowMap(sf::RenderWindow &window, Map map, Scores scores){
 					
 					balls.BallsWasEat(level[pacman.GetY()][pacman.GetX()], scores, gameStatus);
 					level[pacman.GetY()][pacman.GetX()] = 1;
-					if (!tilePinky.moveGhost("pinky.png", sf::Vector2u(16, 16), pinky.GetX(), pinky.GetY()))
-						return -1;
-					if (!tileBlinky.moveGhost("blinky.png", sf::Vector2u(16, 16), blinky.GetX(), blinky.GetY()))
-						return -1;
-					if (!tileInky.moveGhost("inky.png", sf::Vector2u(16, 16), inky.GetX(), inky.GetY()))
-						return -1;
-					if (!tileClyde.moveGhost("clyde.png", sf::Vector2u(16, 16), clyde.GetX(), clyde.GetY()))
-						return -1;
-					if (!tilePacman.move("pacman.png", sf::Vector2u(16, 16), pacman.GetX(), pacman.GetY()))
-						return -1;
-					pinky.move(pacman);
-					blinky.move(pacman);
-
-					inky.move(pacman);
-					clyde.move(pacman);
+					
+					
 					/*if(level[pacman.GetY()][pacman.GetX()] == 3){
 						for(i = instance.GetStartedTime(); i < instance.GetStartedTime() + 10; i++){
 							if(pinky.GetX() == pacman.GetX() && pinky.GetY() == pacman.GetY()){
 								pinky.SetLife(pinky.GetLife() - 1);
-								pinky.SetX(144);
+								pinky.SetX(14);
 								pinky.SetY(14);
 							}
 							if(inky.GetX() == pacman.GetX() && inky.GetY() == pacman.GetY()){
@@ -194,19 +182,8 @@ int Map::WindowMap(sf::RenderWindow &window, Map map, Scores scores){
 						pacman.SetY(pacman.GetY()-1);
 					balls.BallsWasEat(level[pacman.GetY()][pacman.GetX()], scores, gameStatus);
 					level[pacman.GetY()][pacman.GetX()] = 1;
-					if (!tilePinky.moveGhost("pinky.png", sf::Vector2u(16, 16), pinky.GetX(), pinky.GetY()))
-						return -1;		
-					if (!tileBlinky.moveGhost("blinky.png", sf::Vector2u(16, 16), blinky.GetX(), blinky.GetY()))
-						return -1;
-					if (!tileInky.moveGhost("inky.png", sf::Vector2u(16, 16), inky.GetX(), inky.GetY()))
-						return -1;
-					if (!tileClyde.moveGhost("clyde.png", sf::Vector2u(16, 16), clyde.GetX(), clyde.GetY()))
-						return -1;			
-					pinky.move(pacman);
-					blinky.move(pacman);
-
-					inky.move(pacman);
-					clyde.move(pacman);
+							
+					
 					if (!tilePacman.move("pacman.png", sf::Vector2u(16, 16), pacman.GetX(), pacman.GetY()))
 						return -1;
 					/*if(level[pacman.GetY()][pacman.GetX()] == 3){
@@ -250,19 +227,8 @@ int Map::WindowMap(sf::RenderWindow &window, Map map, Scores scores){
 						pacman.SetX(pacman.GetX()-1);
 					balls.BallsWasEat(level[pacman.GetY()][pacman.GetX()], scores, gameStatus);
 					level[pacman.GetY()][pacman.GetX()] = 1;
-					if (!tilePinky.moveGhost("pinky.png", sf::Vector2u(16, 16), pinky.GetX(), pinky.GetY()))
-						return -1;		
-					if (!tileBlinky.moveGhost("blinky.png", sf::Vector2u(16, 16), blinky.GetX(), blinky.GetY()))
-						return -1;
-					if (!tileInky.moveGhost("inky.png", sf::Vector2u(16, 16), inky.GetX(), inky.GetY()))
-						return -1;
-					if (!tileClyde.moveGhost("clyde.png", sf::Vector2u(16, 16), clyde.GetX(), clyde.GetY()))
-						return -1;			
-					pinky.move(pacman);
-					blinky.move(pacman);
-
-					inky.move(pacman);
-					clyde.move(pacman);
+						
+					
 					if (!tilePacman.move("pacman.png", sf::Vector2u(16, 16), pacman.GetX(), pacman.GetY()))
 						return -1;
 					/*if(level[pacman.GetY()][pacman.GetX()] == 3){
@@ -306,19 +272,8 @@ int Map::WindowMap(sf::RenderWindow &window, Map map, Scores scores){
 						pacman.SetX(pacman.GetX()+1);
 					balls.BallsWasEat(level[pacman.GetY()][pacman.GetX()], scores, gameStatus);
 					level[pacman.GetY()][pacman.GetX()] = 1;
-					if (!tilePinky.moveGhost("pinky.png", sf::Vector2u(16, 16), pinky.GetX(), pinky.GetY()))
-						return -1;	
-					if (!tileBlinky.moveGhost("blinky.png", sf::Vector2u(16, 16), blinky.GetX(), blinky.GetY()))
-						return -1;
-					if (!tileInky.moveGhost("inky.png", sf::Vector2u(16, 16), inky.GetX(), inky.GetY()))
-						return -1;
-					if (!tileClyde.moveGhost("clyde.png", sf::Vector2u(16, 16), clyde.GetX(), clyde.GetY()))
-						return -1;				
-					pinky.move(pacman);
-					blinky.move(pacman);
-
-					inky.move(pacman);
-					clyde.move(pacman);
+							
+					
 					if (!tilePacman.move("pacman.png", sf::Vector2u(16, 16), pacman.GetX(), pacman.GetY()))
 						return -1;
 					/*if(level[pacman.GetY()][pacman.GetX()] == 3){
@@ -373,7 +328,16 @@ int Map::WindowMap(sf::RenderWindow &window, Map map, Scores scores){
 		float f = fps.getFps(instance);
 		if (!tileMap.load("tile_gum.png", sf::Vector2u(16, 16), level, 28, 31))
 			std::cout << "TileMap Error" << std::endl;
-
+if (!tilePinky.moveGhost("pinky.png", sf::Vector2u(16, 16), pinky.GetX(), pinky.GetY()))
+						return -1;
+					if (!tileBlinky.moveGhost("blinky.png", sf::Vector2u(16, 16), blinky.GetX(), blinky.GetY()))
+						return -1;
+					if (!tileInky.moveGhost("inky.png", sf::Vector2u(16, 16), inky.GetX(), inky.GetY()))
+						return -1;
+					if (!tileClyde.moveGhost("clyde.png", sf::Vector2u(16, 16), clyde.GetX(), clyde.GetY()))
+						return -1;
+					if (!tilePacman.move("pacman.png", sf::Vector2u(16, 16), pacman.GetX(), pacman.GetY()))
+						return -1;
 		window.clear();
 		window.draw(sprite);
 		window.draw(tilePacman);

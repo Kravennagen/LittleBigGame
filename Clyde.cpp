@@ -29,6 +29,7 @@ Event<int>* Clyde::getEvent(){
 }
 
 void Clyde::move(Pacman &pacman){
+	aStar asClyde;
 	point s(this->GetX(), this->GetY()), e(pacman.GetX(), pacman.GetY());
 
 	if(asClyde.search(s, e, mClyde)){

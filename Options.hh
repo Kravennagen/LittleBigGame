@@ -5,7 +5,6 @@
 #include <string>
 #include <iostream>
 #include "SFML/Audio.hpp"
-#include "SFML/Graphics.hpp"
 
 #define MAX_NUMBER_OF_ITEMS_OPTIONS 2
 

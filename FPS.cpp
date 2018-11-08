@@ -6,11 +6,15 @@ FPS &FPS::GetInstanceFPS(){
 	return singletonFPS;
 }
 
-FPS::FPS(){}
+FPS::FPS(){
+	fps = 0;
+}
 FPS::~FPS(){}
 
 float FPS::getFps(TimeManager &instance){
-	sleep(0.5);
-	float fps = 1.f/ instance.GetElapsedTime();
+	float elipsed = instance.GetElapsedTime();
+	if(elipsed > 1){
+		fps = CLOCKS_PER_SEC / elipsed;
+	}
 	return fps;
 }
