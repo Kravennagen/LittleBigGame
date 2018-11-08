@@ -115,6 +115,7 @@ int Map::WindowMap(sf::RenderWindow &window, Map map, Scores scores){
 	Clyde clyde;
 	Pacman pacman;
 	instance.Start();
+	int i;
 	while(window.isOpen()){
 
 		while(window.pollEvent(event)){
@@ -147,13 +148,43 @@ int Map::WindowMap(sf::RenderWindow &window, Map map, Scores scores){
 					if (!tilePacman.move("pacman.png", sf::Vector2u(16, 16), pacman.GetX(), pacman.GetY()))
 						return -1;
 					pinky.move(pacman);
-					if(pinky.GetX() == pacman.GetX() && pinky.GetY() == pacman.GetY() || inky.GetX() == pacman.GetX() && inky.GetY() == pacman.GetY() || clyde.GetX() == pacman.GetX() && clyde.GetY() == pacman.GetY() || blinky.GetX() == pacman.GetX() && blinky.GetY() == pacman.GetY()){
-						pacman.PacmanDied();
-						pacman.SetX(13);
-						pacman.SetY(23);
-						if(pacman.GetLife() <= 0){
+					blinky.move(pacman);
 
-							gameStatus.SetStatus(0);
+					inky.move(pacman);
+					clyde.move(pacman);
+					if(level[pacman.GetY()][pacman.GetX()] == 3){
+						for(i = instance.GetStartedTime(); i < instance.GetStartedTime() + 10; i++){
+							if(pinky.GetX() == pacman.GetX() && pinky.GetY() == pacman.GetY()){
+								pinky.SetLife(pinky.GetLife() - 1);
+								pinky.SetX(144);
+								pinky.SetY(14);
+							}
+							if(inky.GetX() == pacman.GetX() && inky.GetY() == pacman.GetY()){
+								inky.SetLife(inky.GetLife() - 1);
+								inky.SetX(14);
+								inky.SetY(15);
+							}
+							if(clyde.GetX() == pacman.GetX() && clyde.GetY() == pacman.GetY()){
+								clyde.SetLife(clyde.GetLife() - 1);
+								clyde.SetX(13);
+								clyde.SetY(13);
+							}
+							if(blinky.GetX() == pacman.GetX() && blinky.GetY() == pacman.GetY()){
+								blinky.SetLife(blinky.GetLife() - 1);
+								blinky.SetX(13);
+								blinky.SetY(12);
+							}
+						}
+						
+					}else{
+						if(pinky.GetX() == pacman.GetX() && pinky.GetY() == pacman.GetY() || inky.GetX() == pacman.GetX() && inky.GetY() == pacman.GetY() || clyde.GetX() == pacman.GetX() && clyde.GetY() == pacman.GetY() || blinky.GetX() == pacman.GetX() && blinky.GetY() == pacman.GetY()){
+							pacman.PacmanDied();
+							pacman.SetX(13);
+							pacman.SetY(23);
+							if(pacman.GetLife() <= 0){
+
+								gameStatus.SetStatus(0);
+							}
 						}
 					}
 
@@ -178,15 +209,41 @@ int Map::WindowMap(sf::RenderWindow &window, Map map, Scores scores){
 					clyde.move(pacman);
 					if (!tilePacman.move("pacman.png", sf::Vector2u(16, 16), pacman.GetX(), pacman.GetY()))
 						return -1;
-					if(pinky.GetX() == pacman.GetX() && pinky.GetY() == pacman.GetY() || inky.GetX() == pacman.GetX() && inky.GetY() == pacman.GetY() || clyde.GetX() == pacman.GetX() && clyde.GetY() == pacman.GetY() || blinky.GetX() == pacman.GetX() && blinky.GetY() == pacman.GetY()){
-						pacman.PacmanDied();
-						pacman.SetX(13);
-						pacman.SetY(23);
-						if(pacman.GetLife() <= 0){
-
-							gameStatus.SetStatus(0);
+					if(level[pacman.GetY()][pacman.GetX()] == 3){
+						for(i = instance.GetStartedTime(); i < instance.GetStartedTime() + 10; i++){
+							if(pinky.GetX() == pacman.GetX() && pinky.GetY() == pacman.GetY()){
+								pinky.SetLife(pinky.GetLife() - 1);
+								pinky.SetX(144);
+								pinky.SetY(14);
+							}
+							if(inky.GetX() == pacman.GetX() && inky.GetY() == pacman.GetY()){
+								inky.SetLife(inky.GetLife() - 1);
+								inky.SetX(14);
+								inky.SetY(15);
+							}
+							if(clyde.GetX() == pacman.GetX() && clyde.GetY() == pacman.GetY()){
+								clyde.SetLife(clyde.GetLife() - 1);
+								clyde.SetX(13);
+								clyde.SetY(13);
+							}
+							if(blinky.GetX() == pacman.GetX() && blinky.GetY() == pacman.GetY()){
+								blinky.SetLife(blinky.GetLife() - 1);
+								blinky.SetX(13);
+								blinky.SetY(12);
+							}
 						}
-					}					
+						
+					}else{
+						if(pinky.GetX() == pacman.GetX() && pinky.GetY() == pacman.GetY() || inky.GetX() == pacman.GetX() && inky.GetY() == pacman.GetY() || clyde.GetX() == pacman.GetX() && clyde.GetY() == pacman.GetY() || blinky.GetX() == pacman.GetX() && blinky.GetY() == pacman.GetY()){
+							pacman.PacmanDied();
+							pacman.SetX(13);
+							pacman.SetY(23);
+							if(pacman.GetLife() <= 0){
+
+								gameStatus.SetStatus(0);
+							}
+						}
+					}				
 					break;
 					case sf::Keyboard::Left:
 					if(level[pacman.GetY()][pacman.GetX()-1] != 0)
@@ -208,13 +265,39 @@ int Map::WindowMap(sf::RenderWindow &window, Map map, Scores scores){
 					clyde.move(pacman);
 					if (!tilePacman.move("pacman.png", sf::Vector2u(16, 16), pacman.GetX(), pacman.GetY()))
 						return -1;
-					if(pinky.GetX() == pacman.GetX() && pinky.GetY() == pacman.GetY() || inky.GetX() == pacman.GetX() && inky.GetY() == pacman.GetY() || clyde.GetX() == pacman.GetX() && clyde.GetY() == pacman.GetY() || blinky.GetX() == pacman.GetX() && blinky.GetY() == pacman.GetY()){
-						pacman.PacmanDied();
-						pacman.SetX(13);
-						pacman.SetY(23);
-						if(pacman.GetLife() <= 0){
+					if(level[pacman.GetY()][pacman.GetX()] == 3){
+						for(i = instance.GetStartedTime(); i < instance.GetStartedTime() + 10; i++){
+							if(pinky.GetX() == pacman.GetX() && pinky.GetY() == pacman.GetY()){
+								pinky.SetLife(pinky.GetLife() - 1);
+								pinky.SetX(144);
+								pinky.SetY(14);
+							}
+							if(inky.GetX() == pacman.GetX() && inky.GetY() == pacman.GetY()){
+								inky.SetLife(inky.GetLife() - 1);
+								inky.SetX(14);
+								inky.SetY(15);
+							}
+							if(clyde.GetX() == pacman.GetX() && clyde.GetY() == pacman.GetY()){
+								clyde.SetLife(clyde.GetLife() - 1);
+								clyde.SetX(13);
+								clyde.SetY(13);
+							}
+							if(blinky.GetX() == pacman.GetX() && blinky.GetY() == pacman.GetY()){
+								blinky.SetLife(blinky.GetLife() - 1);
+								blinky.SetX(13);
+								blinky.SetY(12);
+							}
+						}
+						
+					}else{
+						if(pinky.GetX() == pacman.GetX() && pinky.GetY() == pacman.GetY() || inky.GetX() == pacman.GetX() && inky.GetY() == pacman.GetY() || clyde.GetX() == pacman.GetX() && clyde.GetY() == pacman.GetY() || blinky.GetX() == pacman.GetX() && blinky.GetY() == pacman.GetY()){
+							pacman.PacmanDied();
+							pacman.SetX(13);
+							pacman.SetY(23);
+							if(pacman.GetLife() <= 0){
 
-							gameStatus.SetStatus(0);
+								gameStatus.SetStatus(0);
+							}
 						}
 					}					
 					break;
@@ -238,13 +321,39 @@ int Map::WindowMap(sf::RenderWindow &window, Map map, Scores scores){
 					clyde.move(pacman);
 					if (!tilePacman.move("pacman.png", sf::Vector2u(16, 16), pacman.GetX(), pacman.GetY()))
 						return -1;
-					if(pinky.GetX() == pacman.GetX() && pinky.GetY() == pacman.GetY() || inky.GetX() == pacman.GetX() && inky.GetY() == pacman.GetY() || clyde.GetX() == pacman.GetX() && clyde.GetY() == pacman.GetY() || blinky.GetX() == pacman.GetX() && blinky.GetY() == pacman.GetY()){
-						pacman.PacmanDied();
-						pacman.SetX(13);
-						pacman.SetY(23);
-						if(pacman.GetLife() <= 0){
+					if(level[pacman.GetY()][pacman.GetX()] == 3){
+						for(i = instance.GetStartedTime(); i < instance.GetStartedTime() + 10; i++){
+							if(pinky.GetX() == pacman.GetX() && pinky.GetY() == pacman.GetY()){
+								pinky.SetLife(pinky.GetLife() - 1);
+								pinky.SetX(144);
+								pinky.SetY(14);
+							}
+							if(inky.GetX() == pacman.GetX() && inky.GetY() == pacman.GetY()){
+								inky.SetLife(inky.GetLife() - 1);
+								inky.SetX(14);
+								inky.SetY(15);
+							}
+							if(clyde.GetX() == pacman.GetX() && clyde.GetY() == pacman.GetY()){
+								clyde.SetLife(clyde.GetLife() - 1);
+								clyde.SetX(13);
+								clyde.SetY(13);
+							}
+							if(blinky.GetX() == pacman.GetX() && blinky.GetY() == pacman.GetY()){
+								blinky.SetLife(blinky.GetLife() - 1);
+								blinky.SetX(13);
+								blinky.SetY(12);
+							}
+						}
+						
+					}else{
+						if(pinky.GetX() == pacman.GetX() && pinky.GetY() == pacman.GetY() || inky.GetX() == pacman.GetX() && inky.GetY() == pacman.GetY() || clyde.GetX() == pacman.GetX() && clyde.GetY() == pacman.GetY() || blinky.GetX() == pacman.GetX() && blinky.GetY() == pacman.GetY()){
+							pacman.PacmanDied();
+							pacman.SetX(13);
+							pacman.SetY(23);
+							if(pacman.GetLife() <= 0){
 
-							gameStatus.SetStatus(0);
+								gameStatus.SetStatus(0);
+							}
 						}
 					}
 					break;

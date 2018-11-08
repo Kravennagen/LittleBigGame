@@ -4,8 +4,8 @@ TimeManager &timeManagerPinky = TimeManager::GetInstance();
 
 Pinky::Pinky(){
 	this->SetLife(1);
-	this->SetX(1);
-	this->SetY(1);
+	this->SetX(13);
+	this->SetY(14);
 }
 
 Pinky::~Pinky(){}
