@@ -150,7 +150,15 @@ int Map::WindowMap(sf::RenderWindow &window, Map map, Scores scores){
 					if (!tilePacman.move("pacman.png", sf::Vector2u(16, 16), pacman.GetX(), pacman.GetY()))
 						return -1;
 					pinky.move(pacman);
-
+					if(pinky.GetX() == pacman.GetX() && pinky.GetY() == pacman.GetY()){
+						pacman.PacmanDied();
+						pacman.SetX(13);
+						pacman.SetY(23);
+						if(pacman.GetLife() <= 0){
+				
+							gameStatus.SetStatus(0);
+						}
+					}
 				
 					break;
 					case sf::Keyboard::Up:
@@ -163,7 +171,15 @@ int Map::WindowMap(sf::RenderWindow &window, Map map, Scores scores){
 					pinky.move(pacman);
 					if (!tilePacman.move("pacman.png", sf::Vector2u(16, 16), pacman.GetX(), pacman.GetY()))
 						return -1;
-					
+					if(pinky.GetX() == pacman.GetX() && pinky.GetY() == pacman.GetY()){
+						pacman.PacmanDied();
+						pacman.SetX(13);
+						pacman.SetY(23);
+						if(pacman.GetLife() <= 0){
+				
+							gameStatus.SetStatus(0);
+						}
+					}					
 					break;
 					case sf::Keyboard::Left:
 					if(level[pacman.GetY()][pacman.GetX()-1] != 0)
@@ -175,7 +191,15 @@ int Map::WindowMap(sf::RenderWindow &window, Map map, Scores scores){
 					pinky.move(pacman);
 					if (!tilePacman.move("pacman.png", sf::Vector2u(16, 16), pacman.GetX(), pacman.GetY()))
 						return -1;
-					
+					if(pinky.GetX() == pacman.GetX() && pinky.GetY() == pacman.GetY()){
+						pacman.PacmanDied();
+						pacman.SetX(13);
+						pacman.SetY(23);
+						if(pacman.GetLife() <= 0){
+				
+							gameStatus.SetStatus(0);
+						}
+					}					
 					break;
 					case sf::Keyboard::Right:
 					if(level[pacman.GetY()][pacman.GetX()+1] != 0)
@@ -187,7 +211,15 @@ int Map::WindowMap(sf::RenderWindow &window, Map map, Scores scores){
 					pinky.move(pacman);
 					if (!tilePacman.move("pacman.png", sf::Vector2u(16, 16), pacman.GetX(), pacman.GetY()))
 						return -1;
-
+					if(pinky.GetX() == pacman.GetX() && pinky.GetY() == pacman.GetY()){
+						pacman.PacmanDied();
+						pacman.SetX(13);
+						pacman.SetY(23);
+						if(pacman.GetLife() <= 0){
+				
+							gameStatus.SetStatus(0);
+						}
+					}
 					break;
 				}
 				break;
@@ -196,14 +228,7 @@ int Map::WindowMap(sf::RenderWindow &window, Map map, Scores scores){
 
 
 		}
-		if(pinky.GetX() == pacman.GetX() && pinky.GetY() == pacman.GetY()){
-			pacman.PacmanDied();
-			if(pacman.GetLife() <= 0){
-				std::cout << "game status : " << gameStatus.GetStatus() << std::endl;
-				gameStatus.SetStatus(0);
-				std::cout << "game status : " << gameStatus.GetStatus() << std::endl;
-			}
-		}
+		
 		if(gameStatus.GetStatus() == 0){
 			EndGame endGame(window.getSize().x, window.getSize().y);
 			endGame.WindowEndGame(window, endGame, pacman);
