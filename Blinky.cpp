@@ -42,7 +42,7 @@ void Blinky::move(Pacman &pacman){
 		
 		for(std::list<point>::iterator i = path.begin(); i!= path.end(); i++){
 			if(j == 1){
-				//std::cout << "(" << ( *i ).x << ", " << ( *i ).y << ") " << std::endl;
+				
 				this->SetX(( *i ).x);
 				this->SetY(( *i ).y);
 			}

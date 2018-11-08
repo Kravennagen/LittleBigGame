@@ -319,7 +319,7 @@ int Map::WindowMap(sf::RenderWindow &window, Map map, Scores scores){
 
 
 		}
-		//std::cout << "Get status: " << gameStatus.GetStatus() << std::endl;
+		
 		if(gameStatus.GetStatus() == 0){
 			EndGame endGame(window.getSize().x, window.getSize().y);
 			endGame.WindowEndGame(window, endGame, pacman);

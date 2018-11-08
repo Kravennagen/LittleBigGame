@@ -7,11 +7,13 @@ FPS &FPS::GetInstanceFPS(){
 }
 
 FPS::FPS(){
-	fps = 0;
+	
 }
 FPS::~FPS(){}
 
 float FPS::getFps(TimeManager &instance){
+	fps = 0;
+	
 	float elipsed = instance.GetElapsedTime();
 	if(elipsed > 1){
 		fps = CLOCKS_PER_SEC / elipsed;

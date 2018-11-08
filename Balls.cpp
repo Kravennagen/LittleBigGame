@@ -15,11 +15,11 @@ int Balls::BallsWasEat(int tile, Scores &scores, GameStatus &gameStatus){
 		scores.AddPoint(2);
 		SetTotalBalls(GetTotalBalls() + 1);
 	}
-	//std::cout << "Get total balls: " << this->GetTotalBalls() << std::endl;
+	
 	if(this->GetTotalBalls() == 244){
-	//	std::cout << "Get status: " << gameStatus.GetStatus() << std::endl;
+	
 		gameStatus.SetStatus(0);
-	//	std::cout << "Get status: " << gameStatus.GetStatus() << std::endl;
+	
 	}
 	return 0;
 }
