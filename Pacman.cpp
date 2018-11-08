@@ -30,12 +30,9 @@ Event<int>* Pacman::getEvent(){
 
 void Pacman::PacmanDied(){
 
-
-	std::cout << "life pacman: " << this->GetLife() << std::endl;
 	this->SetLife(this->GetLife() - 1);
-	std::cout << "life pacman: " << this->GetLife() << std::endl;
 	notify();
-	
+
 }
 
 

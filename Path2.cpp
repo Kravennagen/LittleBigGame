@@ -103,7 +103,7 @@ public:
     }
  
     bool fillOpen( node& n ) {
-        //std::cout << "node x " << n.pos.x << std::endl;
+
         int stepCost, nc, dist;
         point neighbour;
         for( int x = 0; x < 4; x++ ) {
@@ -126,7 +126,6 @@ public:
     }
  
     bool search( point& s, point& e, mapPath& mp ) {
-        //std::cout << "s x : " << s.x << "s y : " << s.y << std::endl;
         node n; end = e; start = s; m = mp;
         n.cost = 0; n.pos = s; n.parent = 0; n.dist = calcDist( s ); 
         open.push_back( n );
